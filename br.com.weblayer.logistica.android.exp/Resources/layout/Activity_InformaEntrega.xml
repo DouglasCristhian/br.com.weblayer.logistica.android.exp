@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/scrollview">
+
+  <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
+    <TextView
+       android:id="@+id/lblCodigoNF"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:textAppearance="?android:attr/textAppearanceMedium"
+       android:layout_marginTop="30dip"
+       android:layout_marginLeft = "18dip"
+       android:text="Código da NF"/>
+
+    <LinearLayout 
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal">
+
+      <EditText
+         android:id="@+id/txtCodigoNF"
+         android:layout_weight="1"
+         android:layout_width="0dp"
+         android:layout_height="wrap_content"
+         android:textAppearance="?android:attr/textAppearanceMedium"
+         android:layout_marginLeft = "18dip"
+         android:inputType="number"/>
+
+      <Button
+         android:id="@+id/btnEscanearNF"
+         android:layout_width="0dp"
+         android:layout_weight="0.5"
+         android:layout_height="wrap_content"
+         android:layout_marginLeft = "18dip"
+         android:layout_marginRight = "18dip"
+         android:text="Ler Código"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="10dip"
+       android:orientation="horizontal">
+      
+          <TextView
+             android:id="@+id/lblCNPJ"
+             android:text="CNPJ"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:textAppearance="?android:attr/textAppearanceMedium"
+             android:layout_marginLeft="18dip"/>
+      
+          <EditText
+             android:id="@+id/txtCNPJ"
+             android:layout_width="200dip"
+             android:layout_height="wrap_content"
+             android:focusable="false"
+             android:clickable="false"
+             android:textAppearance="?android:attr/textAppearanceMedium"
+             android:layout_marginLeft = "18dip"/>
+
+        <TextView
+             android:id="@+id/lblNumeroNFE"
+             android:text="Numero da NFe"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:textAppearance="?android:attr/textAppearanceMedium"
+             android:layout_marginLeft="32dip"/>
+
+        <EditText
+             android:id="@+id/txtNumeroNFE"
+             android:layout_height="wrap_content"
+             android:layout_width="150dip"
+             android:focusable="false"
+             android:clickable="false"
+             android:textAppearance="?android:attr/textAppearanceMedium"
+             android:layout_marginLeft = "18dip"/>       
+    </LinearLayout>
+    
+    <TextView
+      android:id="@+id/lblOcorrencia"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_marginLeft = "18dip"
+      android:layout_marginTop="10dip"
+      android:text="Ocorrência"/>
+
+    <Spinner
+      android:id="@+id/spinnerOcorrencia"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_marginRight = "18dip"
+      android:layout_marginLeft = "18dip"
+      android:text="Código da NF"/>
+    
+    <TextView
+       android:id="@+id/lblDataEntrega"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:textAppearance="?android:attr/textAppearanceMedium"
+       android:layout_marginLeft = "18dip"
+       android:layout_marginTop="10dip"
+       android:text="Data da Ocorrência:"/>
+
+    <TextView
+       android:id="@+id/txtDataEntrega"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:textAppearance="?android:attr/textAppearanceMedium"
+       android:layout_marginRight = "18dip"
+       android:layout_marginLeft = "18dip"/>
+
+    <TextView
+      android:id="@+id/lblObservacao"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_marginLeft = "18dip"
+      android:layout_marginTop="10dip"
+      android:text="Observação"/>
+
+    <EditText
+       android:id="@+id/txtObservacao"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:textAppearance="?android:attr/textAppearanceMedium"
+       android:layout_marginRight = "18dip"
+       android:layout_marginLeft = "18dip"
+       android:inputType="text"/>
+    
+    <!--<TextView
+      android:id="@+id/dadosNFE"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_marginLeft = "18dip"
+      android:layout_marginTop="10dip"/>-->
+
+    <Button
+       android:text= "Anexar Imagem"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="15dip"
+       android:layout_marginRight = "18dip"
+       android:layout_marginLeft = "18dip"
+       android:paddingLeft="30dip"
+       android:paddingRight="30dip"
+       android:id="@+id/btnAnexarImagem" />
+
+    <Button
+       android:text= "Salvar e Enviar"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="10dip"
+       android:layout_marginRight = "18dip"
+       android:layout_marginLeft = "18dip"
+       android:paddingLeft="30dip"
+       android:paddingRight="30dip"
+       android:id="@+id/btnEnviar"/>
+
+    <Button
+       android:text= "Cancelar"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="10dip"
+       android:layout_marginRight = "18dip"
+       android:layout_marginLeft = "18dip"
+       android:paddingLeft="30dip"
+       android:paddingRight="30dip"
+       android:id="@+id/btnCancelar"/>
+
+    <Button
+      android:text= "Enviar via e-mail"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dip"
+      android:layout_marginRight = "18dip"
+      android:layout_marginLeft = "18dip"
+      android:paddingLeft="30dip"
+      android:paddingRight="30dip"
+      android:id="@+id/btnEnviarViaEmail"/>
+      
+    <ImageView
+      android:id="@+id/imageView"
+      android:layout_width="200dp"
+      android:layout_height="200dp"
+      android:layout_gravity="center"/>
+
+  </LinearLayout>
+</ScrollView>
