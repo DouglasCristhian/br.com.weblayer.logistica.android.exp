@@ -11,7 +11,7 @@ using Android.Content.PM;
 
 namespace br.com.weblayer.logistica.android.exp.Activities
 {
-    [Activity(MainLauncher = true, ConfigurationChanges=Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize, ScreenOrientation = ScreenOrientation.Landscape)]
+    [Activity(MainLauncher = true, ConfigurationChanges=Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize, ScreenOrientation = ScreenOrientation.Portrait)]
     public class Activity_Menu : Activity
     {
         ListView ListViewEntrega;
@@ -30,7 +30,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             FillList();
 
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
-            toolbar.Title = "w/ embarcador";
+            toolbar.Title = "W/Transportador Exp";
             toolbar.SetLogo(Resource.Mipmap.ic_launcher);
             toolbar.InflateMenu(Resource.Menu.menu_toolbarmenu);
 

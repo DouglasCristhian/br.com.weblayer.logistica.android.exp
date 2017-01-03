@@ -21,7 +21,7 @@ using System.IO;
 
 namespace br.com.weblayer.logistica.android.exp.Activities
 {
-    [Activity(MainLauncher = false, ScreenOrientation = ScreenOrientation.Landscape)]
+    [Activity(MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
     public class Activity_InformaEntrega : Activity_Base
     {
         Android.Support.V7.Widget.Toolbar toolbar;
