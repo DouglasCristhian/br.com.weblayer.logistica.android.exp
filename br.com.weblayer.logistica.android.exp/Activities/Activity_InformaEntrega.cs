@@ -31,12 +31,11 @@ namespace br.com.weblayer.logistica.android.exp.Activities
         private Spinner spinnerOcorrencia;
         private List<mySpinner> ocorr;
         private EditText txtCodigoNF;
-        private EditText txtCNPJ;
-        private TextView txtNumeroNFE;
+        private TextView lblCNPJ;
+        private TextView lblNumeroNF;
         private EditText txtObservacao;
         private TextView txtDataEntrega;
         private TextView lblObservacao;
-        //private TextView txtDadosNFE;
         private Button btnEscanearNF;
         private Button btnAnexarImagem;
         private Button btnEnviar;
@@ -90,7 +89,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
                 BindViews();
 
                 ocorr = PopulateOcorrenciaList();
-                spinnerOcorrencia.Adapter = new ArrayAdapter<mySpinner>(this, Android.Resource.Layout.SimpleDropDownItem1Line, ocorr);
+                spinnerOcorrencia.Adapter = new ArrayAdapter<mySpinner>(this, Android.Resource.Layout.SimpleListItem1, ocorr);
 
                 if (entrega != null)
                     spinnerOcorrencia.SetSelection(getIndexByValue(spinnerOcorrencia, entrega.id_ocorrencia));
@@ -122,9 +121,8 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             txtDataEntrega = FindViewById<TextView>(Resource.Id.txtDataEntrega);
             txtObservacao = FindViewById<EditText>(Resource.Id.txtObservacao);
             lblObservacao = FindViewById<TextView>(Resource.Id.lblObservacao);
-           // txtDadosNFE = FindViewById<TextView>(Resource.Id.dadosNFE);
-            txtCNPJ = FindViewById<EditText>(Resource.Id.txtCNPJ);
-            txtNumeroNFE = FindViewById<TextView>(Resource.Id.txtNumeroNFE);
+            lblCNPJ = FindViewById<TextView>(Resource.Id.lblCNPJ);
+            lblNumeroNF = FindViewById<TextView>(Resource.Id.lblNumeroNF);
             btnAnexarImagem = FindViewById<Button>(Resource.Id.btnAnexarImagem);
             btnEscanearNF = FindViewById<Button>(Resource.Id.btnEscanearNF);
             btnCancelar = FindViewById<Button>(Resource.Id.btnCancelar);
@@ -137,18 +135,13 @@ namespace br.com.weblayer.logistica.android.exp.Activities
                 spinnerOcorrencia.Enabled = false;
                 txtObservacao.Focusable = false;
                 txtCodigoNF.Focusable = false;
-                //txtDadosNFE.Enabled = true;
 
                 btnEscanearNF.Visibility = ViewStates.Gone;
                 btnAnexarImagem.Visibility = ViewStates.Gone;
                 btnEnviar.Visibility = ViewStates.Gone;
                 btnCancelar.Visibility = ViewStates.Gone;
             }
-            //else
-            //{
-            //    txtDadosNFE.Enabled = false;
-            //    txtDadosNFE.Visibility = ViewStates.Gone;
-            //}
+          
 
             imageView = FindViewById<ImageView>(Resource.Id.imageView);
 
@@ -165,13 +158,12 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             if (entrega == null)
                 return;
 
-            txtCodigoNF.Text = entrega.ds_NFE.ToString();
+            txtCodigoNF.Text = entrega.ds_NFE;
             spinOcorrencia = entrega.id_ocorrencia.ToString();
-            txtDataEntrega.Text = entrega.dt_entrega.ToString();
+            txtDataEntrega.Text = entrega.dt_entrega.Value.ToString("dd/MM/yyyy");
             txtObservacao.Text = entrega.ds_observacao.ToString();
-            txtCNPJ.AddTextChangedListener(new Mask(txtCNPJ, "##.###.###/####-##"));
-            txtCNPJ.Text = entrega.ds_NFE.Substring(6, 14);
-            txtNumeroNFE.Text = entrega.ds_NFE.Substring(25, 9) + "/" + entrega.ds_NFE.Substring(22, 3);
+            lblCNPJ.Text = "CNPJ Cliente: " + entrega.ds_NFE.Substring(6, 14);
+            lblNumeroNF.Text ="Número NF: " + entrega.ds_NFE.Substring(25, 9) + "/" + entrega.ds_NFE.Substring(22, 3);
 
             if (entrega.Image != null)
             {
@@ -187,8 +179,8 @@ namespace br.com.weblayer.logistica.android.exp.Activities
                 entrega = new Entrega();
 
             entrega.ds_NFE = txtCodigoNF.Text.ToString();
-            entrega.dt_entrega = DateTime.Parse(txtDataEntrega.Text.ToString());
-            entrega.dt_inclusao = DateTime.Parse(DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"));
+            entrega.dt_entrega = DateTime.Parse(txtDataEntrega.Text);
+            entrega.dt_inclusao = DateTime.Now;
             var minhaocorrencia = ocorr[spinnerOcorrencia.SelectedItemPosition];
             entrega.id_ocorrencia = minhaocorrencia.Id();
             entrega.ds_observacao = txtObservacao.Text.ToString();
@@ -203,7 +195,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
         {
             if (entrega == null)
             {
-                txtDataEntrega.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");// + DateTime.Now.ToLocalTime();
+                txtDataEntrega.Text = DateTime.Now.ToString("dd/MM/yyyy");
                 btnEnviarViaEmail.Visibility = ViewStates.Gone;
             }
 
@@ -288,8 +280,8 @@ namespace br.com.weblayer.logistica.android.exp.Activities
         {
             DatePickerHelper frag = DatePickerHelper.NewInstance(delegate (DateTime time)
             {
-                var teste = DateTime.Now.ToString("hh:mm:ss");
-                txtDataEntrega.Text = time.ToShortDateString() + " " + teste;
+                //var teste = DateTime.Now.ToString("hh:mm:ss");
+                txtDataEntrega.Text = time.ToShortDateString();
             });
 
             frag.Show(FragmentManager, DatePickerHelper.TAG);
@@ -403,8 +395,8 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             if (result != null && !string.IsNullOrEmpty(result.Text))
             {
                 txtCodigoNF.Text = result.Text;
-                txtCNPJ.Text = result.Text.Substring(6, 14);
-                txtNumeroNFE.Text = result.Text.Substring(25, 9) + "/" + result.Text.Substring(22, 3);
+                lblCNPJ.Text = "CNPJ Cliente: " + result.Text.Substring(6, 14);
+                lblNumeroNF.Text = "Número NF: " + result.Text.Substring(25, 9) + "/" + result.Text.Substring(22, 3);
             }
             else
                 Toast.MakeText(this, "Escaneamento cancelado!", ToastLength.Short).Show();
@@ -490,7 +482,16 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             email.PutExtra(Intent.ExtraText, entrega.ds_observacao);
             email.SetType("application/image");
             Intent.CreateChooser(email, "Send Email Via");
-            StartActivityForResult(email, 0);
+
+            try
+            {
+                StartActivityForResult(email, 0);
+            }
+            catch (Exception e)
+            {
+                Toast.MakeText(this, "Email não enviado devido à um erro:" + e.Message, ToastLength.Long).Show();
+            }
+            
         }
 
 
@@ -500,14 +501,14 @@ namespace br.com.weblayer.logistica.android.exp.Activities
         {
             AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
-            alert.SetTitle("Tem certeza que deseja excluir este produto?");
+            alert.SetTitle("Tem certeza que deseja excluir este registro?");
 
-            alert.SetNegativeButton("Não!", (senderAlert, args) =>
+            alert.SetNegativeButton("Não", (senderAlert, args) =>
             {
 
             });
 
-            alert.SetPositiveButton("Sim!", (senderAlert, args) =>
+            alert.SetPositiveButton("Sim", (senderAlert, args) =>
             {
                 try
                 {
@@ -545,7 +546,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             Intent myIntent = new Intent(this, typeof(Activity_Menu));
             myIntent.PutExtra("mensagem", Ent.mensagem);
             SetResult(Android.App.Result.Ok, myIntent);
-            Toast.MakeText(this, "Foi", ToastLength.Short).Show();
+            //Toast.MakeText(this, "Foi", ToastLength.Short).Show();
 
             SendByEmail();
 

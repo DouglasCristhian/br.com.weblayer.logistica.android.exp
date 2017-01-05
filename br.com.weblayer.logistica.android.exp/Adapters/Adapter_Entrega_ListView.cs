@@ -12,6 +12,7 @@ namespace br.com.weblayer.logistica.android.exp.Adapters
     {
         public List<Entrega> mItems;
         public Context mContext;
+        private string descricaoocorrencia;
 
         public Adapter_Entrega_ListView(Context context, List<Entrega> items)
         {
@@ -47,10 +48,22 @@ namespace br.com.weblayer.logistica.android.exp.Adapters
             if (row == null)
                 row = LayoutInflater.From(mContext).Inflate(Resource.Layout.Adapter_Entrega_ListView, null, false);
 
-            row.FindViewById<TextView>(Resource.Id.ds_NFE).Text = "Nota: " + mItems[position].ds_NFE;
-            row.FindViewById<TextView>(Resource.Id.id_ocorrencia).Text = "Ocorrencia: " + mItems[position].id_ocorrencia.ToString();
+            descricaoocorrencia = "";
+            if (mItems[position].id_ocorrencia == 1)
+                descricaoocorrencia = "ENTREGA";
+            if (mItems[position].id_ocorrencia == 2)
+                descricaoocorrencia = "INFORMATIVO";
+            if (mItems[position].id_ocorrencia == 3)
+                descricaoocorrencia = "REENTREGA";
+            if (mItems[position].id_ocorrencia == 4)
+                descricaoocorrencia = "DEVOLUÇÃO";
+
+            row.FindViewById<TextView>(Resource.Id.ds_NFE).Text = "NFe: " + mItems[position].ds_NFE;
+
+            row.FindViewById<TextView>(Resource.Id.id_ocorrencia).Text = "Ocorrencia: " + descricaoocorrencia;
+
             row.FindViewById<TextView>(Resource.Id.dt_inclusao).Text = "Data de Inclusão: " + mItems[position].dt_inclusao.ToString();
-            row.FindViewById<TextView>(Resource.Id.dt_entrega).Text = "Data de Entrega: " + mItems[position].dt_entrega.ToString();
+            row.FindViewById<TextView>(Resource.Id.dt_entrega).Text = "Data de Entrega: " + mItems[position].dt_entrega.Value.ToString("dd/MM/yyyy");
 
             return row;
         }

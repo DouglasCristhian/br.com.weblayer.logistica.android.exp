@@ -14,86 +14,66 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar"/>
 
+    <!--Código da NFe-->
     <TextView
        android:id="@+id/lblCodigoNF"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:textAppearance="?android:attr/textAppearanceMedium"
+       android:textAppearance="?android:attr/textAppearanceSmall"
        android:layout_marginTop="30dip"
        android:layout_marginLeft = "18dip"
-       android:text="Código da NF"/>
+       android:layout_marginRight = "18dip"
+       android:text="Código da NFe"/>
 
-    <LinearLayout 
+    <EditText
+       android:id="@+id/txtCodigoNF"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:orientation="horizontal">
+       android:textSize="50px"
+       android:inputType="number"
+       android:layout_marginLeft = "18dip"
+       android:layout_marginRight = "18dip"/>
 
-      <EditText
-         android:id="@+id/txtCodigoNF"
-         android:layout_weight="1"
-         android:layout_width="0dp"
-         android:layout_height="wrap_content"
-         android:textAppearance="?android:attr/textAppearanceMedium"
-         android:layout_marginLeft = "18dip"
-         android:inputType="number"/>
-
-      <Button
-         android:id="@+id/btnEscanearNF"
-         android:layout_width="0dp"
-         android:layout_weight="0.5"
-         android:layout_height="wrap_content"
-         android:layout_marginLeft = "18dip"
-         android:layout_marginRight = "18dip"
-         android:text="Ler Código"/>
-
-    </LinearLayout>
-
-    <LinearLayout
+    <!--Botão apara scanear-->
+    <Button
+       android:id="@+id/btnEscanearNF"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:layout_marginTop="10dip"
-       android:orientation="horizontal">
-      
-          <TextView
-             android:id="@+id/lblCNPJ"
-             android:text="CNPJ"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:textAppearance="?android:attr/textAppearanceMedium"
-             android:layout_marginLeft="18dip"/>
-      
-          <EditText
-             android:id="@+id/txtCNPJ"
-             android:layout_width="200dip"
-             android:layout_height="wrap_content"
-             android:focusable="false"
-             android:clickable="false"
-             android:textAppearance="?android:attr/textAppearanceMedium"
-             android:layout_marginLeft = "18dip"/>
+       android:layout_marginLeft = "18dip"
+       android:layout_marginRight = "18dip"
+       android:text="Ler Código de Barras"
+        android:layout_marginBottom="20dip"
+       />
 
-        <TextView
-             android:id="@+id/lblNumeroNFE"
-             android:text="Numero da NFe"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:textAppearance="?android:attr/textAppearanceMedium"
-             android:layout_marginLeft="32dip"/>
+    <!--CNPJ-->
+    <TextView
+       android:id="@+id/lblCNPJ"
+       android:text="CNPJ do Cliente: "
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:textAppearance="?android:attr/textAppearanceSmall"
+       android:layout_marginLeft = "18dip"
+       android:layout_marginRight = "18dip"/>
 
-        <EditText
-             android:id="@+id/txtNumeroNFE"
-             android:layout_height="wrap_content"
-             android:layout_width="150dip"
-             android:focusable="false"
-             android:clickable="false"
-             android:textAppearance="?android:attr/textAppearanceMedium"
-             android:layout_marginLeft = "18dip"/>       
-    </LinearLayout>
-    
+
+
+    <!--Numero da Nota-->
+    <TextView
+         android:id="@+id/lblNumeroNF"
+         android:text="Numero da NF: "
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:textAppearance="?android:attr/textAppearanceSmall"
+           android:layout_marginLeft = "18dip"
+       android:layout_marginRight = "18dip"/>
+
+
+    <!--Código da Ocorrência-->
     <TextView
       android:id="@+id/lblOcorrencia"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:textAppearance="?android:attr/textAppearanceSmall"
       android:layout_marginLeft = "18dip"
       android:layout_marginTop="10dip"
       android:text="Ocorrência"/>
@@ -102,17 +82,19 @@
       android:id="@+id/spinnerOcorrencia"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:textAppearance="?android:attr/textAppearanceSmall"
       android:layout_marginRight = "18dip"
       android:layout_marginLeft = "18dip"
       android:text="Código da NF"/>
-    
+
+    <!--Data da Ocorrência-->
     <TextView
        android:id="@+id/lblDataEntrega"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:textAppearance="?android:attr/textAppearanceMedium"
+       android:textAppearance="?android:attr/textAppearanceSmall"
        android:layout_marginLeft = "18dip"
+       android:layout_marginRight = "18dip"
        android:layout_marginTop="10dip"
        android:text="Data da Ocorrência:"/>
 
@@ -120,16 +102,18 @@
        android:id="@+id/txtDataEntrega"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:textAppearance="?android:attr/textAppearanceMedium"
+       android:textAppearance="?android:attr/textAppearanceSmall"
        android:layout_marginRight = "18dip"
        android:layout_marginLeft = "18dip"/>
 
+    <!--Observação-->
     <TextView
       android:id="@+id/lblObservacao"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:textAppearance="?android:attr/textAppearanceSmall"
       android:layout_marginLeft = "18dip"
+      android:layout_marginRight = "18dip"
       android:layout_marginTop="10dip"
       android:text="Observação"/>
 
@@ -137,19 +121,13 @@
        android:id="@+id/txtObservacao"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:textAppearance="?android:attr/textAppearanceMedium"
+       android:textAppearance="?android:attr/textAppearanceSmall"
        android:layout_marginRight = "18dip"
        android:layout_marginLeft = "18dip"
        android:inputType="text"/>
-    
-    <!--<TextView
-      android:id="@+id/dadosNFE"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:textAppearance="?android:attr/textAppearanceMedium"
-      android:layout_marginLeft = "18dip"
-      android:layout_marginTop="10dip"/>-->
 
+
+    <!--Botão anexar imagem-->
     <Button
        android:text= "Anexar Imagem"
        android:layout_width="match_parent"
@@ -161,6 +139,7 @@
        android:paddingRight="30dip"
        android:id="@+id/btnAnexarImagem" />
 
+    <!--Botão salvar + enviar-->
     <Button
        android:text= "Salvar e Enviar"
        android:layout_width="match_parent"
@@ -172,6 +151,7 @@
        android:paddingRight="30dip"
        android:id="@+id/btnEnviar"/>
 
+    <!--Botão cancelar-->
     <Button
        android:text= "Cancelar"
        android:layout_width="match_parent"
@@ -183,6 +163,7 @@
        android:paddingRight="30dip"
        android:id="@+id/btnCancelar"/>
 
+    <!--Botão enviar por email-->
     <Button
       android:text= "Enviar via e-mail"
       android:layout_width="match_parent"
@@ -193,12 +174,15 @@
       android:paddingLeft="30dip"
       android:paddingRight="30dip"
       android:id="@+id/btnEnviarViaEmail"/>
-      
+
+    <!--Imagem do anexo-->
     <ImageView
       android:id="@+id/imageView"
       android:layout_width="200dp"
       android:layout_height="200dp"
-      android:layout_gravity="center"/>
+      android:layout_gravity="center"
+      android:layout_marginTop="18dip"
+      android:layout_marginBottom="18dip"/>
 
   </LinearLayout>
 </ScrollView>
