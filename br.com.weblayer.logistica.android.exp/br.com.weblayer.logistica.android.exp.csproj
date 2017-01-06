@@ -154,6 +154,8 @@
     <Compile Include="Helpers\ByteHelper.cs" />
     <Compile Include="Helpers\DatePicker_Helper.cs" />
     <Compile Include="Helpers\Mask.cs" />
+    <Compile Include="Helpers\Substring_Helper.cs" />
+    <Compile Include="Helpers\TimePicker_Helper.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLite.cs" />

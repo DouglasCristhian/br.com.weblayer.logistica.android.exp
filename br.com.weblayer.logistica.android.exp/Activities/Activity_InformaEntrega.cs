@@ -29,12 +29,15 @@ namespace br.com.weblayer.logistica.android.exp.Activities
         MobileBarcodeScanner scanner;
         private Java.IO.File imagefile;
         private Spinner spinnerOcorrencia;
+        private int hour;
+        private int minute;
         private List<mySpinner> ocorr;
         private EditText txtCodigoNF;
         private TextView lblCNPJ;
         private TextView lblNumeroNF;
         private EditText txtObservacao;
         private TextView txtDataEntrega;
+        private TextView txtHoraEntrega;
         private TextView lblObservacao;
         private Button btnEscanearNF;
         private Button btnAnexarImagem;
@@ -47,6 +50,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
         private Entrega entrega;
         private string operacao;
         private string spinOcorrencia;
+        private string descricaoocorrencia;
         private int count;
         Android.Net.Uri contentUri;
         private bool camcheck;
@@ -119,6 +123,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             spinnerOcorrencia = FindViewById<Spinner>(Resource.Id.spinnerOcorrencia);
             spinnerOcorrencia.ItemSelected += new EventHandler<ItemSelectedEventArgs>(SpinnerOcorrencia_ItemSelected);
             txtDataEntrega = FindViewById<TextView>(Resource.Id.txtDataEntrega);
+            txtHoraEntrega = FindViewById<TextView>(Resource.Id.txtHoraEntrega);
             txtObservacao = FindViewById<EditText>(Resource.Id.txtObservacao);
             lblObservacao = FindViewById<TextView>(Resource.Id.lblObservacao);
             lblCNPJ = FindViewById<TextView>(Resource.Id.lblCNPJ);
@@ -161,9 +166,15 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             txtCodigoNF.Text = entrega.ds_NFE;
             spinOcorrencia = entrega.id_ocorrencia.ToString();
             txtDataEntrega.Text = entrega.dt_entrega.Value.ToString("dd/MM/yyyy");
+            txtHoraEntrega.Text = entrega.dt_entrega.Value.ToString("HH:mm");
             txtObservacao.Text = entrega.ds_observacao.ToString();
-            lblCNPJ.Text = "CNPJ Cliente: " + entrega.ds_NFE.Substring(6, 14);
-            lblNumeroNF.Text ="Número NF: " + entrega.ds_NFE.Substring(25, 9) + "/" + entrega.ds_NFE.Substring(22, 3);
+
+            Substring_Helper sub = new Substring_Helper();
+            lblCNPJ.Text = "CNPJ Cliente: " + sub.Substring_CNPJ(entrega.ds_NFE);
+            lblNumeroNF.Text = "Número NF: " + sub.Substring_NumeroNF(entrega.ds_NFE);
+
+            //lblCNPJ.Text = "CNPJ Cliente: " + entrega.ds_NFE.Substring(6, 14);
+            //lblNumeroNF.Text ="Número NF: " + entrega.ds_NFE.Substring(25, 9) + "/" + entrega.ds_NFE.Substring(22, 3);
 
             if (entrega.Image != null)
             {
@@ -179,7 +190,10 @@ namespace br.com.weblayer.logistica.android.exp.Activities
                 entrega = new Entrega();
 
             entrega.ds_NFE = txtCodigoNF.Text.ToString();
-            entrega.dt_entrega = DateTime.Parse(txtDataEntrega.Text);
+
+            string datahora = (txtDataEntrega.Text + " " + txtHoraEntrega.Text);
+
+            entrega.dt_entrega = DateTime.Parse(datahora);
             entrega.dt_inclusao = DateTime.Now;
             var minhaocorrencia = ocorr[spinnerOcorrencia.SelectedItemPosition];
             entrega.id_ocorrencia = minhaocorrencia.Id();
@@ -196,6 +210,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             if (entrega == null)
             {
                 txtDataEntrega.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                txtHoraEntrega.Text = DateTime.Now.ToString("hh:mm");
                 btnEnviarViaEmail.Visibility = ViewStates.Gone;
             }
 
@@ -208,6 +223,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             if (operacao != "selecionado")
             {
                 txtDataEntrega.Click += TxtDataEntrega_Click;
+                txtHoraEntrega.Click += TxtHoraEntrega_Click;
             }
 
             btnEscanearNF.Click += BtnEscanearNF_Click;
@@ -258,6 +274,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
         }
 
 
+
         //EVENTOS CLICK
         private void BtnEnviarViaEmail_Click(object sender, EventArgs e)
         {
@@ -285,6 +302,16 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             });
 
             frag.Show(FragmentManager, DatePickerHelper.TAG);
+        }
+
+        private void TxtHoraEntrega_Click(object sender, EventArgs e)
+        {           
+            TimePickerHelper frag = TimePickerHelper.NewInstance(delegate (DateTime time)
+            {
+                txtHoraEntrega.Text = time.ToString("hh:mm tt");
+            });
+
+            frag.Show(FragmentManager, TimePickerHelper.TAG);
         }
 
         private void Toolbar_MenuItemClick(object sender, Android.Support.V7.Widget.Toolbar.MenuItemClickEventArgs e)
@@ -334,7 +361,22 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             StartActivityForResult(intent, 0);
         }
 
+
+
         //EVENTOS RESULTADOS
+
+        private void DefinirOcorrencia()
+        {
+            if (entrega.id_ocorrencia == 1)
+                descricaoocorrencia = "ENTREGA";
+            if (entrega.id_ocorrencia == 2)
+                descricaoocorrencia = "INFORMATIVO";
+            if (entrega.id_ocorrencia == 3)
+                descricaoocorrencia = "REENTREGA";
+            if (entrega.id_ocorrencia == 4)
+                descricaoocorrencia = "DEVOLUÇÃO";
+        }
+
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
         {
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -395,8 +437,12 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             if (result != null && !string.IsNullOrEmpty(result.Text))
             {
                 txtCodigoNF.Text = result.Text;
-                lblCNPJ.Text = "CNPJ Cliente: " + result.Text.Substring(6, 14);
-                lblNumeroNF.Text = "Número NF: " + result.Text.Substring(25, 9) + "/" + result.Text.Substring(22, 3);
+
+                Substring_Helper sub = new Substring_Helper();
+                lblCNPJ.Text = "CNPJ Cliente: " + sub.Substring_CNPJ(result.Text.ToString());
+                lblNumeroNF.Text = "Número NF: " + sub.Substring_NumeroNF(result.Text.ToString()) + "/" + sub.Substring_SerieNota(result.Text.ToString());
+                //lblCNPJ.Text = "CNPJ Cliente: " + result.Text.Substring(6, 14);
+                //lblNumeroNF.Text = "Número NF: " + result.Text.Substring(25, 9) + "/" + result.Text.Substring(22, 3);
             }
             else
                 Toast.MakeText(this, "Escaneamento cancelado!", ToastLength.Short).Show();
@@ -456,7 +502,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
                     bitmap = helper.ByteArrayToImage(entrega.Image);
 
                     var stream = new FileStream(imagefile.AbsolutePath, FileMode.Create);
-                    bitmap.Compress(Bitmap.CompressFormat.Jpeg, 70, stream);
+                    bitmap.Compress(Bitmap.CompressFormat.Jpeg, 50, stream);
                     stream.Close();
 
                     Intent mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
@@ -471,15 +517,21 @@ namespace br.com.weblayer.logistica.android.exp.Activities
                     bitmap = helper.ByteArrayToImage(entrega.Image);
 
                     var stream = new FileStream(imagefile.AbsolutePath, FileMode.Create);
-                    bitmap.Compress(Bitmap.CompressFormat.Jpeg, 70, stream);
+                    bitmap.Compress(Bitmap.CompressFormat.Jpeg, 50, stream);
                     stream.Close();
                 }
 
                 Android.Net.Uri contentUri = JavaUri.FromFile(imagefile);
                 email.PutExtra(Intent.ExtraStream, contentUri);
             }
+
+            DefinirOcorrencia();
             email.PutExtra(Intent.ExtraSubject, "NFE: " + entrega.ds_NFE + "; Ocorrência: " + entrega.id_ocorrencia.ToString() + "; Data: " + DateTime.Parse(entrega.dt_entrega.ToString()));
-            email.PutExtra(Intent.ExtraText, entrega.ds_observacao);
+            email.PutExtra(Intent.ExtraText, "NFe: " + entrega.ds_NFE +
+                                             "\nOcorrência: " + descricaoocorrencia +
+                                             "\nData de Inclusão: " + entrega.dt_inclusao +
+                                             "\nData de Entrega: " + entrega.dt_entrega +
+                                             "\nObservação: " + entrega.ds_observacao);
             email.SetType("application/image");
             Intent.CreateChooser(email, "Send Email Via");
 
@@ -491,7 +543,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             {
                 Toast.MakeText(this, "Email não enviado devido à um erro:" + e.Message, ToastLength.Long).Show();
             }
-            
+
         }
 
 
