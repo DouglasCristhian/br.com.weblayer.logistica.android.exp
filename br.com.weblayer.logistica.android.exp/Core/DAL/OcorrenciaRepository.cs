@@ -30,10 +30,10 @@ namespace br.com.weblayer.logistica.android.exp.Core.DAL
             if (List().Count > 0)
                 return;
 
-            Save(new Ocorrencia() {ds_descricao = "Entrega" });
-            Save(new Ocorrencia() {ds_descricao = "Informativo" });
-            Save(new Ocorrencia() {ds_descricao = "Reentrega" });
-            Save(new Ocorrencia() {ds_descricao = "Devolução" });
+            Save(new Ocorrencia() {ds_descricao = "Entrega" });   //1
+            Save(new Ocorrencia() {ds_descricao = "Informativo" });  //2
+            Save(new Ocorrencia() {ds_descricao = "Reentrega" }); //3
+            Save(new Ocorrencia() {ds_descricao = "Devolução" }); //4
         }
     }
 }
