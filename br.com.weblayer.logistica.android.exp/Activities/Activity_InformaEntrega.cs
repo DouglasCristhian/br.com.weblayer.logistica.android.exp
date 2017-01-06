@@ -203,7 +203,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
         {
             if (entrega == null)
             {
-                txtDataEntrega.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");// + DateTime.Now.ToLocalTime();
+                txtDataEntrega.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");// + DateTime.Now.ToLocalTime();
                 btnEnviarViaEmail.Visibility = ViewStates.Gone;
             }
 
