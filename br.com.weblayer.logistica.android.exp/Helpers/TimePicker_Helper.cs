@@ -30,11 +30,12 @@ namespace br.com.weblayer.logistica.android.exp.Helpers
         public override Dialog OnCreateDialog(Bundle savedInstanceState)
         {
             DateTime currently = DateTime.Now;
+
             TimePickerDialog dialog = new TimePickerDialog(Activity,
                 this,
                 currently.Hour,
                 currently.Minute,
-                false
+                true
             );
             return dialog;
         }
