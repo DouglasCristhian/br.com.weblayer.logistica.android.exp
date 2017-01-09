@@ -62,8 +62,8 @@ namespace br.com.weblayer.logistica.android.exp.Adapters
 
             row.FindViewById<TextView>(Resource.Id.id_ocorrencia).Text = "Ocorrencia: " + descricaoocorrencia;
 
-            row.FindViewById<TextView>(Resource.Id.dt_inclusao).Text = "Data de Inclusão: " + mItems[position].dt_inclusao.ToString();
-            row.FindViewById<TextView>(Resource.Id.dt_entrega).Text = "Data de Entrega: " + mItems[position].dt_entrega.Value.ToString("dd/MM/yyyy");
+            row.FindViewById<TextView>(Resource.Id.dt_inclusao).Text = "Data de Inclusão: " + mItems[position].dt_inclusao.Value.ToString("dd/MM/yyyy HH:mm");
+            row.FindViewById<TextView>(Resource.Id.dt_entrega).Text = "Data de Entrega: " + mItems[position].dt_entrega.Value.ToString("dd/MM/yyyy HH:mm");
 
             return row;
         }
