@@ -210,7 +210,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             if (entrega == null)
             {
                 txtDataEntrega.Text = DateTime.Now.ToString("dd/MM/yyyy");
-                txtHoraEntrega.Text = DateTime.Now.ToString("hh:mm");
+                txtHoraEntrega.Text = DateTime.Now.ToString("HH:mm");
                 btnEnviarViaEmail.Visibility = ViewStates.Gone;
             }
 
@@ -308,7 +308,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
         {           
             TimePickerHelper frag = TimePickerHelper.NewInstance(delegate (DateTime time)
             {
-                txtHoraEntrega.Text = time.ToString("hh:mm tt");
+                txtHoraEntrega.Text = time.ToString("HH:mm");
             });
 
             frag.Show(FragmentManager, TimePickerHelper.TAG);
