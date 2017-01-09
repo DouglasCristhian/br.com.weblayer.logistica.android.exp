@@ -11,7 +11,6 @@ namespace br.com.weblayer.logistica.android.exp.Helpers
         public static readonly string TAG = "X:" + typeof(DatePickerHelper).Name.ToUpper();
         Action<DateTime> _dateSelectedHandler = delegate { };
 
-
         public static DatePickerHelper NewInstance(Action<DateTime> onDateSelected)
         {
             DatePickerHelper frag = new DatePickerHelper();
@@ -22,14 +21,9 @@ namespace br.com.weblayer.logistica.android.exp.Helpers
         public override Dialog OnCreateDialog(Bundle savedInstanceState)
         {
             DateTime currently = DateTime.Now;
-            DatePickerDialog dialog = new DatePickerDialog(Activity,this,currently.Year,currently.Month,currently.Day);
+            DatePickerDialog dialog = new DatePickerDialog(Activity,this,currently.Year,currently.Month - 1,currently.Day);
             return dialog;
         }
-
-        //public void OnDateSet(DatePicker view, int year, int month, int dayOfMonth)
-        //{
-        //    throw new NotImplementedException();
-        //}
 
         public void OnDateSet(Android.Widget.DatePicker view, int year, int monthOfYear, int dayOfMonth)
         {
@@ -37,12 +31,5 @@ namespace br.com.weblayer.logistica.android.exp.Helpers
 
             _dateSelectedHandler(selectedDate);
         }
-
-        //public void OnDateSet(Android.Widget.DatePicker view, int year, int monthOfYear, int dayOfMonth, int hour, int minute, int seconds)
-        //{
-        //    DateTime selectedDate = new DateTime(year, monthOfYear, dayOfMonth, hour, minute, seconds);
-
-        //    _dateSelectedHandler(selectedDate);
-        //}
     }
 }

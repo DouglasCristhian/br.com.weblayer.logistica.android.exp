@@ -29,6 +29,7 @@
        android:id="@+id/txtCodigoNF"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
+       android:textColor="#000000"
        android:textSize="50px"
        android:inputType="number"
        android:layout_marginLeft = "18dip"
@@ -64,8 +65,8 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:textAppearance="?android:attr/textAppearanceSmall"
-           android:layout_marginLeft = "18dip"
-       android:layout_marginRight = "18dip"/>
+         android:layout_marginLeft = "18dip"
+         android:layout_marginRight = "18dip"/>
 
 
     <!--Código da Ocorrência-->
@@ -102,7 +103,28 @@
        android:id="@+id/txtDataEntrega"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
+       android:textColor="#000000"
        android:textAppearance="?android:attr/textAppearanceSmall"
+       android:layout_marginRight = "18dip"
+       android:layout_marginLeft = "18dip"/>
+
+    <!--Hora da Ocorrência-->
+    <TextView
+      android:id="@+id/lblHoraENtrega"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:textAppearance="?android:attr/textAppearanceSmall"
+      android:layout_marginLeft = "18dip"
+      android:layout_marginRight = "18dip"
+      android:layout_marginTop="10dip"
+      android:text="Hora da Ocorrência:"/>
+
+    <TextView
+       android:id="@+id/txtHoraEntrega"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:textAppearance="?android:attr/textAppearanceSmall"
+       android:textColor="#000000"
        android:layout_marginRight = "18dip"
        android:layout_marginLeft = "18dip"/>
 
@@ -121,6 +143,7 @@
        android:id="@+id/txtObservacao"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
+       android:textColor="#000000"
        android:textAppearance="?android:attr/textAppearanceSmall"
        android:layout_marginRight = "18dip"
        android:layout_marginLeft = "18dip"
