@@ -18,6 +18,7 @@ using br.com.weblayer.logistica.android.exp.Core.DAL;
 using Android.Graphics;
 using JavaUri = Android.Net.Uri;
 using System.IO;
+using System.Globalization;
 
 namespace br.com.weblayer.logistica.android.exp.Activities
 {
@@ -298,7 +299,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             DatePickerHelper frag = DatePickerHelper.NewInstance(delegate (DateTime time)
             {
                 //var teste = DateTime.Now.ToString("hh:mm:ss");
-                txtDataEntrega.Text = time.ToShortDateString();
+                txtDataEntrega.Text = time.ToString("dd/MM/yyyy", CultureInfo.GetCultureInfo("pt-BR"));
             });
 
             frag.Show(FragmentManager, DatePickerHelper.TAG);
