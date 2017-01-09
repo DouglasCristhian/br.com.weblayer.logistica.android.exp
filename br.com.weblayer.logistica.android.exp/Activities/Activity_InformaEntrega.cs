@@ -546,8 +546,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             Intent myIntent = new Intent(this, typeof(Activity_Menu));
             myIntent.PutExtra("mensagem", Ent.mensagem);
             SetResult(Android.App.Result.Ok, myIntent);
-            //Toast.MakeText(this, "Foi", ToastLength.Short).Show();
-
+           
             SendByEmail();
 
             Finish();
