@@ -170,7 +170,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             txtObservacao.Text = entrega.ds_observacao.ToString();
 
             Substring_Helper sub = new Substring_Helper();
-            lblCNPJ.Text = "CNPJ Cliente: " + sub.Substring_CNPJ(entrega.ds_NFE);
+            lblCNPJ.Text = "CNPJ Emissor: " + sub.Substring_CNPJ(entrega.ds_NFE);
             lblNumeroNF.Text = "Número NF: " + sub.Substring_NumeroNF(entrega.ds_NFE);
 
             //lblCNPJ.Text = "CNPJ Cliente: " + entrega.ds_NFE.Substring(6, 14);
@@ -439,10 +439,8 @@ namespace br.com.weblayer.logistica.android.exp.Activities
                 txtCodigoNF.Text = result.Text;
 
                 Substring_Helper sub = new Substring_Helper();
-                lblCNPJ.Text = "CNPJ Cliente: " + sub.Substring_CNPJ(result.Text.ToString());
+                lblCNPJ.Text = "CNPJ Emissor: " + sub.Substring_CNPJ(result.Text.ToString());
                 lblNumeroNF.Text = "Número NF: " + sub.Substring_NumeroNF(result.Text.ToString()) + "/" + sub.Substring_SerieNota(result.Text.ToString());
-                //lblCNPJ.Text = "CNPJ Cliente: " + result.Text.Substring(6, 14);
-                //lblNumeroNF.Text = "Número NF: " + result.Text.Substring(25, 9) + "/" + result.Text.Substring(22, 3);
             }
             else
                 Toast.MakeText(this, "Escaneamento cancelado!", ToastLength.Short).Show();

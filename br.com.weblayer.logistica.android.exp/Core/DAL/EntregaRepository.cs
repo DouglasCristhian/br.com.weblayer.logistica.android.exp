@@ -58,8 +58,8 @@ namespace br.com.weblayer.logistica.android.exp.Core.DAL
             if (List().Count > 0)
                 return;
 
-            Save(new Entrega { ds_NFE = "35160903703339000142550000000594611002684151", id_ocorrencia = 1, dt_inclusao = DateTime.Parse("2016/03/01"), dt_entrega = DateTime.Parse("2016/05/01"), ds_observacao = "Tudo certo" });
-            Save(new Entrega { ds_NFE = "35160972456809001709550010000114581062554946", id_ocorrencia = 2, dt_inclusao = DateTime.Parse("2016/03/01"), dt_entrega = DateTime.Parse("2016/05/01"), ds_observacao = "Tudo errado" });
+            //Save(new Entrega { ds_NFE = "35160903703339000142550000000594611002684151", id_ocorrencia = 1, dt_inclusao = DateTime.Parse("2016/03/01"), dt_entrega = DateTime.Parse("2016/05/01"), ds_observacao = "Tudo certo" });
+            //Save(new Entrega { ds_NFE = "35160972456809001709550010000114581062554946", id_ocorrencia = 2, dt_inclusao = DateTime.Parse("2016/03/01"), dt_entrega = DateTime.Parse("2016/05/01"), ds_observacao = "Tudo errado" });
         }
     }
 }
