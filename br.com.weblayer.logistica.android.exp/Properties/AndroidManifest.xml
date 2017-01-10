@@ -1,16 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="br.com.weblayer.logistica.android.exp.br.com.weblayer.logistica.android.exp" android:versionCode="1" android:versionName="1.0" android:installLocation="auto">
-	<uses-sdk android:minSdkVersion="17" android:targetSdkVersion="24" />
-	<uses-permission android:name="android.permission.CAMERA" />
-	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-  <application
-    android:label="W/Transportador Exp"
-    android:theme="@style/MaterialTheme"
-    android:icon="@mipmap/ic_launcher3"
-    android:hardwareAccelerated="false"
-    android:largeHeap="true">
-  </application>
-
-</manifest>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="br.com.weblayer.transportadora.exp" android:versionCode="1" android:versionName="1.0" android:installLocation="auto">
+  <uses-sdk android:minSdkVersion="17" android:targetSdkVersion="24" />
+  <uses-permission android:name="android.permission.CAMERA" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <application android:label="W/Transportador Exp" android:theme="@style/MaterialTheme"
+  android:icon="@mipmap/ic_launcher3"               android:hardwareAccelerated="false"
+  android:largeHeap="true"></application></manifest>
