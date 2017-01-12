@@ -8,13 +8,19 @@
      android:id="@+id/toolbar"
      layout="@layout/toolbar"/>
 
+   <TextView
+     android:id="@+id/edtMensagem"
+     android:layout_marginTop="10dp"
+     android:layout_marginLeft="18dip"
+     android:layout_marginRight="18dip"
+     android:layout_height="wrap_content"
+     android:layout_width="match_parent"
+     android:hint="Não há entregas registradas no momento"
+     android:textSize="17sp"/>
+  
   <ListView
-    android:minWidth="25px"
-    android:minHeight="25px"
-    android:layout_marginTop="20dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:clickable="false"
+    android:layout_height="wrap_content"
     android:id="@+id/EntregaListView"/>
      
 </LinearLayout>

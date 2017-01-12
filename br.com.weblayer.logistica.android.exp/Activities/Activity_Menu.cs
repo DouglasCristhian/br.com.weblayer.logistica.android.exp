@@ -16,6 +16,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
     {
         ListView ListViewEntrega;
         List<Entrega> ListaEntregas;
+        private TextView txtEntregas;
         Android.Support.V7.Widget.Toolbar toolbar;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -32,7 +33,8 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Title = " W/Transportador Express";
             toolbar.SetLogo(Resource.Mipmap.ic_launcher);
-            toolbar.InflateMenu(Resource.Menu.menu_toolbarmenu);
+            toolbar.InflateMenu(Resource.Menu.menu_toolbar);
+            toolbar.Menu.RemoveItem(Resource.Id.action_deletar);
 
             toolbar.MenuItemClick += Toolbar_MenuItemClick;
         }
@@ -40,6 +42,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
         private void FindViews()
         {
             ListViewEntrega = FindViewById<ListView>(Resource.Id.EntregaListView);
+            txtEntregas = FindViewById<TextView>(Resource.Id.edtMensagem);
         }
 
         private void BindData()
@@ -62,14 +65,27 @@ namespace br.com.weblayer.logistica.android.exp.Activities
         private void FillList()
         {
             ListaEntregas = new EntregaManager().GetEntrega();
-            ListViewEntrega.Adapter = new Adapter_Entrega_ListView(this, ListaEntregas);
+            if (ListaEntregas.Count > 0)
+            {
+                ListViewEntrega.Adapter = new Adapter_Entrega_ListView(this, ListaEntregas);
+                txtEntregas.Enabled = false;
+                txtEntregas.Visibility = ViewStates.Gone;
+            }
+            else
+            {
+                txtEntregas.Enabled = true;
+                txtEntregas.Visibility = ViewStates.Visible;
+                ListViewEntrega.Adapter = new Adapter_Entrega_ListView(this, ListaEntregas);
+            }
         }
+
+
 
         private void Toolbar_MenuItemClick(object sender, Android.Support.V7.Widget.Toolbar.MenuItemClickEventArgs e)
         {
             switch (e.Item.ItemId)
             {
-                case Resource.Id.adicionar:
+                case Resource.Id.action_adicionar:
                     Intent intent = new Intent(this, typeof(Activity_InformaEntrega));
                     StartActivityForResult(intent, 0);
                     break;
@@ -93,6 +109,9 @@ namespace br.com.weblayer.logistica.android.exp.Activities
 
             if (resultCode == Result.Ok)
             {
+                var mensagem = data.GetStringExtra("mensagem");
+                Toast.MakeText(this, mensagem, ToastLength.Short).Show();
+
                 FillList();
             }
         }

@@ -24,15 +24,15 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             get;
         }
 
-        protected abstract int MenuResource
-        {
-            get;
-        }
+        //protected abstract int MenuResource
+        //{
+        //    get;
+        //}
 
-        public override bool OnCreateOptionsMenu(IMenu menu)
-        {
-            MenuInflater.Inflate(MenuResource, menu);
-            return true;
-        }
+        //public override bool OnCreateOptionsMenu(IMenu menu)
+        //{
+        //    MenuInflater.Inflate(MenuResource, menu);
+        //    return true;
+        //}
     }
 }

@@ -20,5 +20,7 @@ namespace br.com.weblayer.logistica.android.exp.Core.BLL
         {
             return new OcorrenciaRepository().List();
         }
+
+
     }
 }

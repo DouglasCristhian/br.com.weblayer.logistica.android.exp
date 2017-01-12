@@ -30,8 +30,6 @@ namespace br.com.weblayer.logistica.android.exp.Activities
         MobileBarcodeScanner scanner;
         private Java.IO.File imagefile;
         private Spinner spinnerOcorrencia;
-        private int hour;
-        private int minute;
         private List<mySpinner> ocorr;
         private EditText txtCodigoNF;
         private TextView lblCNPJ;
@@ -65,13 +63,13 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             }
         }
 
-        protected override int MenuResource
-        {
-            get
-            {
-                return Resource.Menu.menu_toolbarinformaentrega;
-            }
-        }
+        //protected override int MenuResource
+        //{
+        //    get
+        //    {
+        //        return Resource.Menu.menu_toolbarinformaentrega;
+        //    }
+        //}
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -116,6 +114,21 @@ namespace br.com.weblayer.logistica.android.exp.Activities
                 }
             }
             return index;
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.menu_toolbar, menu);
+
+            if (operacao != "selecionado")
+            {
+                menu.RemoveItem(Resource.Id.action_deletar);
+                menu.RemoveItem(Resource.Id.action_adicionar);
+            }
+            else
+                menu.RemoveItem(Resource.Id.action_adicionar);
+
+            return base.OnCreateOptionsMenu(menu);
         }
 
         private void FindViews()
@@ -319,7 +332,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
         {
             switch (e.Item.ItemId)
             {
-                case Resource.Id.deletar:
+                case Resource.Id.action_deletar:
                     if (entrega == null)
                     {
                         Toast.MakeText(this, "Não é possível deletar uma entrega não registrada", ToastLength.Short).Show();
@@ -590,19 +603,27 @@ namespace br.com.weblayer.logistica.android.exp.Activities
         { 
             if (!ValidateViews())
                 return;
+            try
+            {
+                BindModel();
 
-            BindModel();
+                var Ent = new EntregaManager();
+                Ent.Save(entrega);
 
-            var Ent = new EntregaManager();
-            Ent.Save(entrega);
+                Intent myIntent = new Intent(this, typeof(Activity_Menu));
+                myIntent.PutExtra("mensagem", Ent.mensagem);
+                SetResult(Result.Ok, myIntent);
 
-            Intent myIntent = new Intent(this, typeof(Activity_Menu));
-            myIntent.PutExtra("mensagem", Ent.mensagem);
-            SetResult(Android.App.Result.Ok, myIntent);
-           
-            SendByEmail();
+                SendByEmail();
 
-            Finish();
+                Finish();
+            }
+            catch (Exception ex)
+            {
+                Toast.MakeText(this, ex.Message, ToastLength.Short).Show();
+            }
+
+            
         }     
 
         private void SaveForm()

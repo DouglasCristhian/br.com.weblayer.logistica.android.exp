@@ -225,9 +225,6 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcherback.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\menu\menu_toolbarvazia.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\layout\Activity_InformaEntrega.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -236,10 +233,7 @@
     <AndroidResource Include="Resources\drawable\btncamera.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\menu\menu_toolbarinformaentrega.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\menu\menu_toolbarmenu.xml" />
+    <AndroidResource Include="Resources\menu\menu_toolbar.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-hdpi\ic_delete.png" />

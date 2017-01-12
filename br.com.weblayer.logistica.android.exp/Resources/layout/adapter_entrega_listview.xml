@@ -9,35 +9,35 @@
       <TextView
         android:id="@+id/ds_NFE"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:textSize="17sp"
         android:focusable="false"/>
       
       <TextView
         android:id="@+id/id_ocorrencia"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:textSize="17sp"
         android:focusable="false"/>
 
       <TextView
         android:id="@+id/dt_inclusao"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:textSize="17sp"
         android:focusable="false"/>
 
       <TextView
         android:id="@+id/dt_entrega"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:textSize="17sp"
         android:focusable="false"/>
   
       <TextView
         android:id="@+id/ds_imagem"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:textSize="17sp"
         android:focusable="false"/>
       
