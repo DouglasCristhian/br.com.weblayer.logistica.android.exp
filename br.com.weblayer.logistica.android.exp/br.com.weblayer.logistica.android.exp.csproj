@@ -164,7 +164,6 @@
   <ItemGroup>
     <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
-    <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Activity_Menu.xml">
@@ -297,6 +296,18 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Embarcador_Logo512x512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\GoogleImage1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\GoogleImage2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\weblayer.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.24.2.1\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.24.2.1\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
