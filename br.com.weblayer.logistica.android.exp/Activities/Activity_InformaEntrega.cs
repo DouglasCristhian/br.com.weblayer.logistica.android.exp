@@ -63,14 +63,6 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             }
         }
 
-        //protected override int MenuResource
-        //{
-        //    get
-        //    {
-        //        return Resource.Menu.menu_toolbarinformaentrega;
-        //    }
-        //}
-
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -183,12 +175,17 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             txtHoraEntrega.Text = entrega.dt_entrega.Value.ToString("HH:mm");
             txtObservacao.Text = entrega.ds_observacao.ToString();
 
-            Substring_Helper sub = new Substring_Helper();
-            lblCNPJ.Text = "CNPJ Emissor: " + sub.Substring_CNPJ(entrega.ds_NFE);
-            lblNumeroNF.Text = "Número NF: " + sub.Substring_NumeroNF(entrega.ds_NFE);
+            if (entrega.ds_NFE.Length >= 34)
+            {
+                Substring_Helper sub = new Substring_Helper();
+                lblCNPJ.Text = "CNPJ Emissor: " + sub.Substring_CNPJ(entrega.ds_NFE);
+                lblNumeroNF.Text = "Número NF: " + sub.Substring_NumeroNF(entrega.ds_NFE) + "/" + sub.Substring_SerieNota(entrega.ds_NFE);
+            }
+            else
+            {
+                lblNumeroNF.Text = "Número NF: ";
+            }
 
-            //lblCNPJ.Text = "CNPJ Cliente: " + entrega.ds_NFE.Substring(6, 14);
-            //lblNumeroNF.Text ="Número NF: " + entrega.ds_NFE.Substring(25, 9) + "/" + entrega.ds_NFE.Substring(22, 3);
 
             if (entrega.Image != null)
             {
@@ -245,7 +242,25 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             btnEnviar.Click += BtnEnviar_Click;
             btnCancelar.Click += BtnCancelar_Click;
             btnEnviarViaEmail.Click += BtnEnviarViaEmail_Click;
+            txtCodigoNF.FocusChange += TxtCodigoNF_FocusChange;
+        }
 
+        private void TxtCodigoNF_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+            if (!e.HasFocus)
+            {
+                Substring_Helper sub = new Substring_Helper();
+                lblCNPJ.Text = "CNPJ Emissor: " + sub.Substring_CNPJ(txtCodigoNF.Text.ToString());
+                string numero_serie = sub.Substring_NumeroNF(txtCodigoNF.Text.ToString());
+                if (numero_serie != null)
+                {
+                    lblNumeroNF.Text = "Número NF: " + sub.Substring_NumeroNF(txtCodigoNF.Text.ToString()) + " / " +  sub.Substring_SerieNota(txtCodigoNF.Text.ToString());
+                }
+                else
+                {
+                    lblNumeroNF.Text = "Número NF: ";
+                }              
+            }       
         }
 
         private List<mySpinner> PopulateOcorrenciaList()
@@ -284,10 +299,9 @@ namespace br.com.weblayer.logistica.android.exp.Activities
 
         private void SpinnerOcorrencia_ItemSelected(object sender, ItemSelectedEventArgs e)
         {
+            txtCodigoNF.ClearFocus();
             spinOcorrencia = spinnerOcorrencia.SelectedItem.ToString();
         }
-
-
 
         //EVENTOS CLICK
         private void BtnEnviarViaEmail_Click(object sender, EventArgs e)
@@ -332,15 +346,12 @@ namespace br.com.weblayer.logistica.android.exp.Activities
         {
             switch (e.Item.ItemId)
             {
+                case Resource.Id.action_ajuda:
+                    StartActivity(typeof(Activity_ManualUsuario));
+                    break;
+
                 case Resource.Id.action_deletar:
-                    if (entrega == null)
-                    {
-                        Toast.MakeText(this, "Não é possível deletar uma entrega não registrada", ToastLength.Short).Show();
-                    }
-                    else
-                    {
-                        Delete();
-                    }
+                    Delete();
                     break;
             }
         }
@@ -374,8 +385,6 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             intent.PutExtra(MediaStore.ExtraOutput, tempuri);
             StartActivityForResult(intent, 0);
         }
-
-
 
         //EVENTOS RESULTADOS
 

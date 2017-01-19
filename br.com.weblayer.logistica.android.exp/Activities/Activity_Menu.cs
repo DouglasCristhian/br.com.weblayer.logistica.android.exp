@@ -79,8 +79,6 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             }
         }
 
-
-
         private void Toolbar_MenuItemClick(object sender, Android.Support.V7.Widget.Toolbar.MenuItemClickEventArgs e)
         {
             switch (e.Item.ItemId)
@@ -88,6 +86,17 @@ namespace br.com.weblayer.logistica.android.exp.Activities
                 case Resource.Id.action_adicionar:
                     Intent intent = new Intent(this, typeof(Activity_InformaEntrega));
                     StartActivityForResult(intent, 0);
+                    break;
+
+                case Resource.Id.action_ajuda:
+                    Intent intent2 = new Intent(this, typeof(Activity_ManualUsuario));
+                    StartActivityForResult(intent2, 0);
+                    break;
+
+
+                case Resource.Id.action_sobre:
+                    Intent intent3 = new Intent(this, typeof(Activity_SobreWeblayer));
+                    StartActivityForResult(intent3, 0);
                     break;
             }
         }

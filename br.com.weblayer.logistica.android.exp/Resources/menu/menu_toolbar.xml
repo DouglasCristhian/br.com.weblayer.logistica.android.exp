@@ -5,14 +5,25 @@
 
   <item
      android:id="@+id/action_adicionar"
-     android:title="Search"
+     android:title="Adicionar Entrega"
      android:icon="@mipmap/ic_add"
      app:showAsAction="always"/>
 
   <item
     android:id="@+id/action_deletar"
-    android:title="Delete"
+    android:title="Deletar Entrega"
     android:icon="@mipmap/ic_delete"
     app:showAsAction="always"/>
+
+  <item
+    android:id="@+id/action_ajuda"
+    android:title="Manual do Usuário"
+    android:icon="@mipmap/ic_help"
+    app:showAsAction="never"/>
+
+  <item
+    android:id="@+id/action_sobre"
+    android:title="Sobre a Weblayer"
+    app:showAsAction="never"/>
 
 </menu>

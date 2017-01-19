@@ -2,4 +2,66 @@
 <resources>
     <string name="Hello">Hello World, Click Me!</string>
     <string name="ApplicationName">w/embarcador</string>
+    <string name="SobreWeblayer">
+    "     A Weblayer é especializada em desenvolvimento de software para a internet e aplicações para dispositivos móveis. Seus produtos têm foco em gestão logística do embarcador e gestão comercial, são baseados em Web fornecendo assim facilidade no acesso aos produtos e redução de gastos no investimento.\n     Dúvidas? Entre em contato conosco!\n\n     Telefone: (11) 4063-5420 (São Paulo)\n     E-mail: suporte@weblayer.com.br"
+    </string>
+  
+    <string name ="instrucao_manual">
+    "     Selecione um tópico ou deslize o dedo para a esquerda da tela para ver as instruções."    
+    </string>
+
+    <string name ="utilizandoApp_Introducao">
+    "       Este aplicativo tem por objetivo auxiliar às transportadoras no processo de informar as entregas de suas NFes. Através dele, é possível escanear o código de barras ou inseri-lo manualmente, definir o tipo da ocorrência, a data e hora desta e inclusive tirar uma foto do canhoto da nota. Ao fim deste processo, é ainda possível enviar um e-mail ao requisitante com as informações já formatadas."
+    </string>
+
+  <string name ="utilizando_App1">
+    "       Na primeira tela do aplicativo, temos os registros de todas entregas já feitas pelo transportador. No momento de inicialização não temos nenhum registro e é possível adicionar um ao clicar no símbolo de adicionar no canto superior direito da tela."
+    </string>
+
+    <string name ="utilizando_App2">
+    "       Ao fazer isso, somos levados à tela de preenchimento dos dados. É aqui que se encontram as funções do aplicativo: Ler o código de barras, definir a ocorrência, definir a data e hora da entrega, fazer possíveis observações, tirar foto e, por fim, enviar o e-mail."
+    </string>
+
+    <string name ="utilizando_App3">
+    "       O código de barras da nota (1) pode ser inserido manualmente via teclado numérico do dispositivo ou via escaneamento direto através da câmera. Para que todas as funções do aplicativo estejam disponíveis, será necessário garantir a permissão de acesso à câmera e à galeria do celular (Veja mais sobre em Permissões). Uma vez que a NFe seja inserida, o CNPJ do cliente, o número da nota e a série desta serão automaticamente inseridos nos campos abaixo (2)."
+    </string>
+
+    <string name ="utilizando_App4">
+    "       O tipo de ocorrência pode ser definido ao clicar no campo “Selecione…”. As opções disponíveis serão mostradas ao usuário e ele poderá selecionar a desejada."
+    </string>
+
+    <string name ="utilizando_App5">
+    "       A data e a hora da ocorrência podem ser igualmente selecionadas clicando sobre seus respectivos campos."
+    </string>
+
+    <string name ="permissoes_1">
+    "       Após clicar no botão “Anexar Imagem” ou “Ler Código de Barras”, serão requisitadas as permissões para a utilização da câmera e o acesso à galeria do dispositivo.
+       Observação: Sem a câmera, não será possível escanear a NFe ou tirar foto do canhoto desta e, sem o acesso à galeria, não será possível salvar as fotos e enviá-las por e-mail."
+    </string>
+
+    <string name ="permissoes_2">
+    "       Incluir uma foto não é obrigatório. Para fazê-lo, basta clicar no botão “Anexar Imagem” e, assim que for tirada a foto, ela será imediatamente mostrada na parte inferior da tela para visualização. Caso precise substituir a imagem, basta repetir o processo e a mais nova sobrescreverá a anterior. Vale destacar que, mesmo que a imagem de uma ocorrência seja deletada da galeria do dispositivo, ela será novamente gerada para envio do e-mail."
+    </string>
+
+    <string name ="enviaremail_1">
+    "       Ao escolher “Salvar e Enviar”, os dados da entrega serão salvos nos registros do aplicativo e as opções para envio do e-mail surgirão num pop-up para o usuário. Estas opções variam de acordo com os aplicativos instalados e/ou acessíveis ao dispositivo.
+       Os dados enviados via e-mail ao requisitante terão o seguinte formato:"
+    </string>
+
+    <string name ="enviaremail_2">
+    "       Após o envio, a lista de registros do aplicativo é atualizada."
+    </string>
+
+    <string name ="registrosVisualizar_1">
+    "       Para visualizar os dados de uma entrega já realizada, basta selecionar o registro desejado."
+    </string>
+
+    <string name ="registrosVisualizar_2">
+    "       Não é possível alterar uma entrega já efetuada, mas é possível rever seus dados e ainda deletá-la se necessário."
+    </string>
+
+    <string name ="registrosExcluir">
+    "       Para excluir um registro, basta selecioná-lo e clicar no botão destacado na imagem abaixo. "
+    </string>
+  
 </resources>

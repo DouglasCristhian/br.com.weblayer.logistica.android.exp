@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+  xmlns:android="http://schemas.android.com/apk/res/android"
+   android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+  <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:minWidth="25px"
+      android:minHeight="25px">
+
+     <TextView
+       android:text="Utilizando o Aplicativo"
+       android:layout_marginLeft="18dip"
+       android:layout_marginTop="18dip"
+       android:textAppearance="?android:attr/textAppearanceLarge"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"/>
+      
+    <!--Na primeira tela...-->
+    <TextView 
+       android:text="@string/utilizando_App1"
+       android:layout_marginLeft="18dip"
+       android:layout_marginRight="18dip"
+       android:layout_marginTop="10dip"
+       android:textAppearance="?android:attr/textAppearanceMedium"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
+    
+    <ImageView
+       android:layout_marginTop="18dip"
+       android:layout_gravity="center_horizontal"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+      android:background="@drawable/Menu"/>
+
+    <!--Ao fazer isso...-->
+    <TextView
+       android:text="@string/utilizando_App2"
+       android:layout_marginLeft="18dip"
+       android:layout_marginRight="18dip"
+       android:layout_marginTop="10dip"
+       android:textAppearance="?android:attr/textAppearanceMedium"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
+
+     <!--O código de barras da nota...-->
+    <TextView
+       android:text="@string/utilizando_App3"
+       android:layout_marginLeft="18dip"
+       android:layout_marginRight="18dip"
+       android:layout_marginTop="10dip"
+       android:textAppearance="?android:attr/textAppearanceMedium"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
+      
+    <ImageView
+       android:layout_marginTop="18dip"
+       android:layout_gravity="center_horizontal"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:background="@drawable/TelaPreenchimento1"/>
+    
+    <!--O tipo de ocorrencia...-->
+    <TextView
+       android:text="@string/utilizando_App4"
+       android:layout_marginLeft="18dip"
+       android:layout_marginRight="18dip"
+       android:layout_marginTop="10dip"
+       android:textAppearance="?android:attr/textAppearanceMedium"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
+      
+     <ImageView
+       android:layout_marginTop="18dip"
+       android:layout_gravity="center_horizontal"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:background="@drawable/TelaPreenchimento2"/>      
+
+    <ImageView
+       android:layout_marginTop="18dip"
+       android:layout_gravity="center_horizontal"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:background="@drawable/SelecaoOcorrencia"/>      
+    
+    <!--A data e a hora...-->   
+    <TextView
+       android:text="@string/utilizando_App5"
+       android:layout_marginLeft="18dip"
+       android:layout_marginRight="18dip"
+       android:layout_marginTop="10dip"
+       android:textAppearance="?android:attr/textAppearanceMedium"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
+    
+     <ImageView
+       android:layout_marginTop="18dip"
+       android:layout_gravity="center_horizontal"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:background="@drawable/TelaPreenchimento3"/>     
+    
+     <TextView
+       android:text="Definindo a data:"
+       android:layout_marginLeft="18dip"
+       android:layout_marginRight="18dip"
+       android:layout_marginTop="10dip"
+       android:textAppearance="?android:attr/textAppearanceMedium"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
+       
+    <ImageView
+       android:layout_marginTop="10dip"
+       android:layout_gravity="center_horizontal"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:background="@drawable/SelecaoData"/>
+
+    <TextView
+       android:text="Definindo a hora:"
+       android:layout_marginLeft="18dip"
+       android:layout_marginRight="18dip"
+       android:layout_marginTop="10dip"
+       android:textAppearance="?android:attr/textAppearanceMedium"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
+      
+    <ImageView
+       android:layout_marginTop="10dip"
+       android:layout_gravity="center_horizontal"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:background="@drawable/SelecaoHora"/>       
+
+  </LinearLayout>
+</ScrollView>
