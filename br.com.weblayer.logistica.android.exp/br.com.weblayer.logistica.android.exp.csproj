@@ -177,7 +177,6 @@
     <Compile Include="SQLiteAsync.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
