@@ -465,8 +465,15 @@ namespace br.com.weblayer.logistica.android.exp.Activities
                 lblCNPJ.Text = "CNPJ Emissor: " + sub.Substring_CNPJ(result.Text.ToString());
                 lblNumeroNF.Text = "Número NF: " + sub.Substring_NumeroNF(result.Text.ToString()) + "/" + sub.Substring_SerieNota(result.Text.ToString());
             }
+            else if (result.Text.Length < 44)
+            {
+                Toast.MakeText(this, "Código inválido! O código de barras deve ter 44 caracteres", ToastLength.Long).Show();
+                return;
+            }
             else
+            {
                 Toast.MakeText(this, "Escaneamento cancelado!", ToastLength.Short).Show();
+            }             
         }
 
         protected override void OnActivityResult(int requestCode, Android.App.Result resultCode, Intent data)
