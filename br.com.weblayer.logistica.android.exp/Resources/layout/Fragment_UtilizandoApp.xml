@@ -134,7 +134,150 @@
        android:layout_gravity="center_horizontal"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:background="@drawable/SelecaoHora"/>       
+       android:background="@drawable/SelecaoHora"/>
+
+    <TextView
+       android:text="Permissões"
+       android:layout_marginLeft="18dip"
+       android:layout_marginTop="18dip"
+       android:textAppearance="?android:attr/textAppearanceLarge"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"/>
+
+    <!--Após clicar no botão...-->
+    <TextView
+       android:text="@string/permissoes_1"
+       android:layout_marginLeft="18dip"
+       android:layout_marginRight="18dip"
+       android:layout_marginTop="10dip"
+       android:textAppearance="?android:attr/textAppearanceMedium"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
+
+    <ImageView
+       android:layout_marginTop="18dip"
+       android:layout_gravity="center_horizontal"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:background="@drawable/PermissoesCamera"/>
+
+    <ImageView
+       android:layout_marginTop="18dip"
+       android:layout_gravity="center_horizontal"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:background="@drawable/PermissoesMidia"/>
+
+    <!--Incluir uma foto...-->
+    <TextView
+       android:text="@string/permissoes_2"
+       android:layout_marginLeft="18dip"
+       android:layout_marginRight="18dip"
+       android:layout_marginTop="10dip"
+       android:textAppearance="?android:attr/textAppearanceMedium"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
+
+    <ImageView
+       android:layout_marginTop="18dip"
+       android:layout_gravity="center_horizontal"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:background="@drawable/ImagemAnexada"/>
+
+    <TextView
+     android:text="Enviar dados via E-mail"
+     android:layout_marginLeft="18dip"
+     android:layout_marginTop="18dip"
+     android:textAppearance="?android:attr/textAppearanceLarge"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"/>
+
+    <!--Ao escolher 'Salvar e Enviar'...-->
+    <TextView
+       android:text="@string/enviaremail_1"
+       android:layout_marginLeft="18dip"
+       android:layout_marginRight="18dip"
+       android:layout_marginTop="10dip"
+       android:textAppearance="?android:attr/textAppearanceMedium"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
+
+    <ImageView
+       android:layout_marginTop="18dip"
+       android:layout_gravity="center_horizontal"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:background="@drawable/EmailAndroidPronto"/>
+
+    <TextView
+       android:text="@string/enviaremail_2"
+       android:layout_marginLeft="18dip"
+       android:layout_marginRight="18dip"
+       android:layout_marginTop="10dip"
+       android:textAppearance="?android:attr/textAppearanceMedium"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
+
+    <TextView
+       android:text="Registros: Visualizar"
+       android:layout_marginLeft="18dip"
+       android:layout_marginTop="18dip"
+       android:textAppearance="?android:attr/textAppearanceLarge"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"/>
+
+    <!--Para visualizar os dados de uma entrega ...-->
+    <TextView
+       android:text="@string/registrosVisualizar_1"
+       android:layout_marginLeft="18dip"
+       android:layout_marginRight="18dip"
+       android:layout_marginTop="10dip"
+       android:textAppearance="?android:attr/textAppearanceMedium"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
+
+    <ImageView
+       android:layout_marginTop="18dip"
+       android:layout_gravity="center_horizontal"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:background="@drawable/VisualizarRegistros"/>
+
+    <!--Não é possível alterar uma entrega já efetuada...-->
+    <TextView
+       android:text="@string/registrosVisualizar_2"
+       android:layout_marginLeft="18dip"
+       android:layout_marginRight="18dip"
+       android:layout_marginTop="10dip"
+       android:textAppearance="?android:attr/textAppearanceMedium"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
+
+    <TextView
+       android:text="Registros: Excluir"
+       android:layout_marginLeft="18dip"
+       android:layout_marginTop="18dip"
+       android:textAppearance="?android:attr/textAppearanceLarge"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"/>
+
+    <!--Para visualizar os dados de uma entrega ...-->
+    <TextView
+       android:text="@string/registrosExcluir"
+       android:layout_marginLeft="18dip"
+       android:layout_marginRight="18dip"
+       android:layout_marginTop="10dip"
+       android:textAppearance="?android:attr/textAppearanceMedium"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
+
+    <ImageView
+       android:layout_marginTop="18dip"
+       android:layout_gravity="center_horizontal"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:background="@drawable/ExcluirRegistros"/>
 
   </LinearLayout>
 </ScrollView>

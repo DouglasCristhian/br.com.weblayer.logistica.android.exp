@@ -26,4 +26,10 @@
     android:title="Sobre a Weblayer"
     app:showAsAction="never"/>
 
+  <item
+    android:id="@+id/action_proximo"
+    android:icon="@mipmap/ic_next"
+    android:title="Sobre a Weblayer"
+    app:showAsAction="always"/>
+
 </menu>

@@ -35,6 +35,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             toolbar.SetLogo(Resource.Mipmap.ic_launcher);
             toolbar.InflateMenu(Resource.Menu.menu_toolbar);
             toolbar.Menu.RemoveItem(Resource.Id.action_deletar);
+            toolbar.Menu.RemoveItem(Resource.Id.action_proximo);
 
             toolbar.MenuItemClick += Toolbar_MenuItemClick;
         }

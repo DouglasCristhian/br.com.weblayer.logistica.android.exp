@@ -117,9 +117,15 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             {
                 menu.RemoveItem(Resource.Id.action_deletar);
                 menu.RemoveItem(Resource.Id.action_adicionar);
+                menu.RemoveItem(Resource.Id.action_ajuda);
+                menu.RemoveItem(Resource.Id.action_sobre);
+                menu.RemoveItem(Resource.Id.action_proximo);
             }
             else
                 menu.RemoveItem(Resource.Id.action_adicionar);
+                menu.RemoveItem(Resource.Id.action_ajuda);
+                menu.RemoveItem(Resource.Id.action_sobre);
+                menu.RemoveItem(Resource.Id.action_proximo);
 
             return base.OnCreateOptionsMenu(menu);
         }
@@ -176,17 +182,21 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             txtHoraEntrega.Text = entrega.dt_entrega.Value.ToString("HH:mm");
             txtObservacao.Text = entrega.ds_observacao.ToString();
 
-            if (entrega.ds_NFE.Length >= 34)
-            {
-                Substring_Helper sub = new Substring_Helper();
-                lblCNPJ.Text = "CNPJ Emissor: " + sub.Substring_CNPJ(entrega.ds_NFE);
-                lblNumeroNF.Text = "Número NF: " + sub.Substring_NumeroNF(entrega.ds_NFE) + "/" + sub.Substring_SerieNota(entrega.ds_NFE);
-            }
-            else
-            {
-                lblNumeroNF.Text = "Número NF: ";
-            }
+            Substring_Helper sub = new Substring_Helper();
+            lblCNPJ.Text = "CNPJ Emissor: " + sub.Substring_CNPJ(entrega.ds_NFE);
+            lblNumeroNF.Text = "Número NF: " + sub.Substring_NumeroNF(entrega.ds_NFE) + "/" + sub.Substring_SerieNota(entrega.ds_NFE);
 
+
+            //if (entrega.ds_NFE.Length >= 34)
+            //{
+            //    Substring_Helper sub = new Substring_Helper();
+            //    lblCNPJ.Text = "CNPJ Emissor: " + sub.Substring_CNPJ(entrega.ds_NFE);
+            //    lblNumeroNF.Text = "Número NF: " + sub.Substring_NumeroNF(entrega.ds_NFE) + "/" + sub.Substring_SerieNota(entrega.ds_NFE);
+            //}
+            //else
+            //{
+            //    lblNumeroNF.Text = "Número NF: ";
+            //}
 
             if (entrega.Image != null)
             {
@@ -248,19 +258,27 @@ namespace br.com.weblayer.logistica.android.exp.Activities
 
         private void TxtCodigoNF_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
-            if (!e.HasFocus)
+            if (txtCodigoNF.Text.Length == 0)
+            {
+                return;
+            }
+            else if (!e.HasFocus && txtCodigoNF.Text.Length > 0 && txtCodigoNF.Text.Length < 44)
+            {
+                txtCodigoNF.Error = "Código inválido! O código de barras deve ter 44 caracteres!";
+                lblCNPJ.Text = "CNPJ Emissor: ";
+                lblNumeroNF.Text = "Número NF: ";
+
+               // return;
+            }
+            else if ((!e.HasFocus && txtCodigoNF.Text.Length == 44))
             {
                 Substring_Helper sub = new Substring_Helper();
                 lblCNPJ.Text = "CNPJ Emissor: " + sub.Substring_CNPJ(txtCodigoNF.Text.ToString());
                 string numero_serie = sub.Substring_NumeroNF(txtCodigoNF.Text.ToString());
                 if (numero_serie != null)
                 {
-                    lblNumeroNF.Text = "Número NF: " + sub.Substring_NumeroNF(txtCodigoNF.Text.ToString()) + " / " +  sub.Substring_SerieNota(txtCodigoNF.Text.ToString());
+                    lblNumeroNF.Text = "Número NF: " + sub.Substring_NumeroNF(txtCodigoNF.Text.ToString()) + " / " + sub.Substring_SerieNota(txtCodigoNF.Text.ToString());
                 }
-                else
-                {
-                    lblNumeroNF.Text = "Número NF: ";
-                }              
             }       
         }
 
@@ -282,10 +300,10 @@ namespace br.com.weblayer.logistica.android.exp.Activities
         private bool ValidateViews()
         {
             var validacao = true;
-            if (txtCodigoNF.Length() == 0)
+            if (txtCodigoNF.Length() == 0 || txtCodigoNF.Length() < 44)
             {
                 validacao = false;
-                txtCodigoNF.Error = "Nota Fiscal inválida!";
+                txtCodigoNF.Error = "Código inválido! O código de barras deve ter 44 caracteres!";
             }
 
             if (spinnerOcorrencia.SelectedItemPosition == 0)
@@ -458,7 +476,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
 
         public void HandleScanResult(ZXing.Result result)
         {
-            if (result != null && !string.IsNullOrEmpty(result.Text))
+            if (result != null && !string.IsNullOrEmpty(result.Text) && result.Text.Length == 44)
             {
                 txtCodigoNF.Text = result.Text;
 
@@ -466,15 +484,14 @@ namespace br.com.weblayer.logistica.android.exp.Activities
                 lblCNPJ.Text = "CNPJ Emissor: " + sub.Substring_CNPJ(result.Text.ToString());
                 lblNumeroNF.Text = "Número NF: " + sub.Substring_NumeroNF(result.Text.ToString()) + "/" + sub.Substring_SerieNota(result.Text.ToString());
             }
-            else if (result.Text.Length < 44)
+            else 
             {
-                Toast.MakeText(this, "Código inválido! O código de barras deve ter 44 caracteres", ToastLength.Long).Show();
-                return;
+                txtCodigoNF.Error = "Código inválido! O código de barras deve ter 44 caracteres!";
+                lblCNPJ.Text = "CNPJ Emissor: ";
+                lblNumeroNF.Text = "Número NF: ";
+                //return;
             }
-            else
-            {
-                Toast.MakeText(this, "Escaneamento cancelado!", ToastLength.Short).Show();
-            }             
+     
         }
 
         protected override void OnActivityResult(int requestCode, Android.App.Result resultCode, Intent data)

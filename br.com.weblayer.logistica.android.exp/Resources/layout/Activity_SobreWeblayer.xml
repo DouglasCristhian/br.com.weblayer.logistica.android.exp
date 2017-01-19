@@ -28,4 +28,14 @@
      android:layout_marginTop="20dip"
      android:text="@string/SobreWeblayer"
      android:textSize="17sp"/>
+
+  <TextView
+     android:id="@+id/txtVersaoApp"
+     android:layout_height="wrap_content"
+     android:layout_width="match_parent"
+     android:gravity="bottom"
+     android:layout_marginLeft="18dip"
+     android:layout_marginRight="18dip"
+     android:layout_marginTop="40dip"
+     android:textSize="17sp"/>
 </LinearLayout>

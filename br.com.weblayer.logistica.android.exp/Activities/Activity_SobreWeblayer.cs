@@ -15,6 +15,8 @@ namespace br.com.weblayer.logistica.android.exp.Activities
     [Activity(Label = "Sobre")]
     public class Activity_SobreWeblayer : Activity_Base
     {
+        TextView txtVersaoApp;
+
         protected override int LayoutResource
         {
             get
@@ -28,7 +30,18 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             base.OnCreate(savedInstanceState);
             ImageView img;
             img = FindViewById<ImageView>(Resource.Id.Weblayer_Logo);
+            txtVersaoApp = FindViewById<TextView>(Resource.Id.txtVersaoApp);
+
             img.SetBackgroundResource(Resource.Drawable.Weblayer_Logo);
+
+            string versao = GetVersionCode();
+            txtVersaoApp.Text = "Versão do Aplicativo: " + versao;
+
+        }
+
+        public string GetVersionCode()
+        {
+            return Application.Context.ApplicationContext.PackageManager.GetPackageInfo(Application.Context.ApplicationContext.PackageName, 0).VersionName;
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
