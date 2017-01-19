@@ -258,6 +258,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             }
             else if ((!e.HasFocus && txtCodigoNF.Text.Length == 44))
             {
+                txtCodigoNF.Error = null;
                 Substring_Helper sub = new Substring_Helper();
                 lblCNPJ.Text = "CNPJ Emissor: " + sub.Substring_CNPJ(txtCodigoNF.Text.ToString());
                 string numero_serie = sub.Substring_NumeroNF(txtCodigoNF.Text.ToString());
