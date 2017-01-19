@@ -186,18 +186,6 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             lblCNPJ.Text = "CNPJ Emissor: " + sub.Substring_CNPJ(entrega.ds_NFE);
             lblNumeroNF.Text = "Número NF: " + sub.Substring_NumeroNF(entrega.ds_NFE) + "/" + sub.Substring_SerieNota(entrega.ds_NFE);
 
-
-            //if (entrega.ds_NFE.Length >= 34)
-            //{
-            //    Substring_Helper sub = new Substring_Helper();
-            //    lblCNPJ.Text = "CNPJ Emissor: " + sub.Substring_CNPJ(entrega.ds_NFE);
-            //    lblNumeroNF.Text = "Número NF: " + sub.Substring_NumeroNF(entrega.ds_NFE) + "/" + sub.Substring_SerieNota(entrega.ds_NFE);
-            //}
-            //else
-            //{
-            //    lblNumeroNF.Text = "Número NF: ";
-            //}
-
             if (entrega.Image != null)
             {
                 ByteHelper helper = new ByteHelper();
@@ -267,8 +255,6 @@ namespace br.com.weblayer.logistica.android.exp.Activities
                 txtCodigoNF.Error = "Código inválido! O código de barras deve ter 44 caracteres!";
                 lblCNPJ.Text = "CNPJ Emissor: ";
                 lblNumeroNF.Text = "Número NF: ";
-
-               // return;
             }
             else if ((!e.HasFocus && txtCodigoNF.Text.Length == 44))
             {

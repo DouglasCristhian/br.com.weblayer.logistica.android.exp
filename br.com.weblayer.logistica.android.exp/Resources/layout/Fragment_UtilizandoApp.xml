@@ -108,7 +108,7 @@
        android:text="Definindo a data:"
        android:layout_marginLeft="18dip"
        android:layout_marginRight="18dip"
-       android:layout_marginTop="10dip"
+       android:layout_marginTop="18dip"
        android:textAppearance="?android:attr/textAppearanceMedium"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"/>
@@ -124,7 +124,7 @@
        android:text="Definindo a hora:"
        android:layout_marginLeft="18dip"
        android:layout_marginRight="18dip"
-       android:layout_marginTop="10dip"
+       android:layout_marginTop="18dip"
        android:textAppearance="?android:attr/textAppearanceMedium"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"/>
