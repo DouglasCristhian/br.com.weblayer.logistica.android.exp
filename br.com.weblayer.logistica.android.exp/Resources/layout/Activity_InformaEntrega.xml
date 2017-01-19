@@ -31,7 +31,7 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:textColor="#000000"
-       android:textSize="40px"
+       android:textSize="50px"
        android:inputType="number"
        android:layout_marginLeft = "18dip"
        android:layout_marginRight = "18dip"/>

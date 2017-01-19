@@ -19,6 +19,7 @@ using Android.Graphics;
 using JavaUri = Android.Net.Uri;
 using System.IO;
 using System.Globalization;
+using Android.Support.V4.App;
 
 namespace br.com.weblayer.logistica.android.exp.Activities
 {
@@ -436,9 +437,9 @@ namespace br.com.weblayer.logistica.android.exp.Activities
 
         private void ValidarPermissoes(object sender, System.EventArgs e)
         {
-            if (CheckSelfPermission(Manifest.Permission.ReadExternalStorage) == Permission.Granted)
+            if (ActivityCompat.CheckSelfPermission(this, Manifest.Permission.ReadExternalStorage) == Permission.Granted)
             {
-                if ((CheckSelfPermission(Manifest.Permission.Camera) == Android.Content.PM.Permission.Granted))
+                if ((ActivityCompat.CheckSelfPermission(this,Manifest.Permission.Camera) == Permission.Granted))
                 {
                     TirarFoto();
                 }
