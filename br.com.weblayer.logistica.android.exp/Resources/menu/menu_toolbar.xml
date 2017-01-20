@@ -17,19 +17,18 @@
 
   <item
     android:id="@+id/action_ajuda"
-    android:title="Manual do Usuário"
+    android:title="Ajuda"
     android:icon="@mipmap/ic_help"
     app:showAsAction="never"/>
 
   <item
     android:id="@+id/action_sobre"
-    android:title="Sobre a Weblayer"
+    android:title="Sobre"
     app:showAsAction="never"/>
 
   <item
     android:id="@+id/action_proximo"
     android:icon="@mipmap/ic_next"
-    android:title="Sobre a Weblayer"
     app:showAsAction="always"/>
 
 </menu>

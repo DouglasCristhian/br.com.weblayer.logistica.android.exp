@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:layout_gravity="center_vertical">
 
   <include
@@ -17,25 +17,12 @@
     android:layout_marginLeft="18dip"
     android:layout_marginRight="18dip"
     android:layout_gravity="center_horizontal"
-    android:layout_marginTop="20dip"/>
+    android:layout_marginTop="20dip"
+    android:background="@drawable/Weblayer_Logo"/>
 
-  <TextView
-     android:id="@+id/txtAjuda"
-     android:layout_height="wrap_content"
-     android:layout_width="match_parent"
-     android:layout_marginLeft="18dip"
-     android:layout_marginRight="18dip"
-     android:layout_marginTop="20dip"
-     android:text="@string/SobreWeblayer"
-     android:textSize="17sp"/>
-
-  <TextView
-     android:id="@+id/txtVersaoApp"
-     android:layout_height="wrap_content"
-     android:layout_width="match_parent"
-     android:gravity="bottom"
-     android:layout_marginLeft="18dip"
-     android:layout_marginRight="18dip"
-     android:layout_marginTop="40dip"
-     android:textSize="17sp"/>
+  <ListView
+    android:id="@+id/listaAjuda"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"/>
+  
 </LinearLayout>

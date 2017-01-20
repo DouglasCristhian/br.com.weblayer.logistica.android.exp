@@ -9,13 +9,18 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using System.Collections;
+using br.com.weblayer.logistica.android.exp.Adapters;
+using br.com.weblayer.logistica.android.exp.Helpers;
 
 namespace br.com.weblayer.logistica.android.exp.Activities
 {
     [Activity(Label = "Sobre")]
     public class Activity_SobreWeblayer : Activity_Base
     {
-        TextView txtVersaoApp;
+        private CustomAdapter adapter;
+        private ListView lv;
+        private List<ItemLista> itens;
 
         protected override int LayoutResource
         {
@@ -28,32 +33,43 @@ namespace br.com.weblayer.logistica.android.exp.Activities
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            ImageView img;
-            img = FindViewById<ImageView>(Resource.Id.Weblayer_Logo);
-            txtVersaoApp = FindViewById<TextView>(Resource.Id.txtVersaoApp);
 
-            img.SetBackgroundResource(Resource.Drawable.Weblayer_Logo);
+            FindViews();
+            adapter = new CustomAdapter(this, Resource.Layout.ItemLista_Model, GetItens());
 
-            string versao = GetVersionCode();
-            txtVersaoApp.Text = "Versão do Aplicativo: " + versao;
-
+            lv.Adapter = adapter;
+            lv.ItemClick += Lv_ItemClick;
         }
 
-        public string GetVersionCode()
+        private void Lv_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            if (e.Position == 1)
+            {
+                Toast.MakeText(this, "Ir para tela de novidades", ToastLength.Short).Show();
+            }
+        }
+
+        private void FindViews()
+        {
+            lv = FindViewById<ListView>(Resource.Id.listaAjuda);
+        }
+
+        private List<ItemLista> GetItens()
+        {
+            string versao = GetVersion();
+
+            itens = new List<ItemLista>()
+            {
+                new ItemLista("Novidades", ""),
+                new ItemLista("Versão\n", versao.ToString()),
+            };
+
+          return itens;
+        }
+
+        private string GetVersion()
         {
             return Application.Context.ApplicationContext.PackageManager.GetPackageInfo(Application.Context.ApplicationContext.PackageName, 0).VersionName;
-        }
-
-        public override bool OnOptionsItemSelected(IMenuItem item)
-        {
-            switch (item.ItemId)
-            {
-                case Android.Resource.Id.Home:
-                    Finish();
-
-                    return true;
-            }
-            return base.OnOptionsItemSelected(item);
         }
     }
 }
