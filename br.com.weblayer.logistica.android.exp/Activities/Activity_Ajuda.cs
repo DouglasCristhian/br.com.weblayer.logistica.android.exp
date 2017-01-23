@@ -38,54 +38,13 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             /*var*/ pager = FindViewById<ViewPager>(Resource.Id.pager);
             /*var */adapter = new GenericFragmentPagerAdaptor(SupportFragmentManager);
 
-            //MenuManual
-            //adapter.AddFragmentView((i, v, b) =>
-            //{
-            //    var view = i.Inflate(Resource.Layout.Fragment_Introducao, v, false);
-            //    return view;
-            //});
-
-            //Introdução
             adapter.AddFragmentView((i, v, b) =>
             {
                 var view = i.Inflate(Resource.Layout.Fragment_UtilizandoApp, v, false);
                 return view;
             });
 
-            //UtilizandoApp
-            //adapter.AddFragmentView((i, v, b) =>
-            //{
-            //    var view = i.Inflate(Resource.Layout.Fragment_UtilizandoApp, v, false);
-            //    return view;
-            //});
-
-            ////Permissoes
-            //adapter.AddFragmentView((i, v, b) =>
-            //{
-            //    var view = i.Inflate(Resource.Layout.Fragment_PermissoesApp, v, false);
-            //    return view;
-            //});
-
-            ////EnviarEmail
-            //adapter.AddFragmentView((i, v, b) =>
-            //{
-            //    var view = i.Inflate(Resource.Layout.Fragment_EnviarEmailApp, v, false);
-            //    return view;
-            //});
-
-            ////RegistrosVisualizar
-            //adapter.AddFragmentView((i, v, b) =>
-            //{
-            //    var view = i.Inflate(Resource.Layout.Fragment_Registros, v, false);
-            //    return view;
-            //});
-
-            ////RegistrosDeletar
-            //adapter.AddFragmentView((i, v, b) =>
-            //{
-            //    var view = i.Inflate(Resource.Layout.Fragment_RegistrosDeletar, v, false);
-            //    return view;
-            //});
+ 
 
             pager.Adapter = adapter;
         }
@@ -95,15 +54,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             switch (item.ItemId)
             {
                 case Android.Resource.Id.Home:
-                    if (TAG == 1)
-                    {
-                        pager.CurrentItem = 0;
-                        TAG = 0;
-                    }
-                    else
-                    {
-                        Finish();
-                    }
+                    Finish();
                     return true;
 
             }
@@ -126,48 +77,6 @@ namespace br.com.weblayer.logistica.android.exp.Activities
         //public void SobreWeblayerClick(View v) // Does not need to match value in above attribute.
         //{
         //    StartActivity(typeof(Activity_SobreWeblayer));
-        //}
-
-        //[Java.Interop.Export("IntroduçãoClick")] // The value found in android:onClick attribute.
-        //public void IntroduçãoClick(View v) // Does not need to match value in above attribute.
-        //{
-        //    TAG = 1;
-        //    pager.CurrentItem = 1;
-        //}
-
-        //[Java.Interop.Export("UtilizandoAppClick")] // The value found in android:onClick attribute.
-        //public void UtilizandoAppClick(View v) // Does not need to match value in above attribute.
-        //{
-        //    TAG = 1;
-        //    pager.CurrentItem = 2;
-        //}
-
-        //[Java.Interop.Export("PermissoesClick")] // The value found in android:onClick attribute.
-        //public void PermissoesClick(View v) // Does not need to match value in above attribute.
-        //{
-        //    TAG = 1;
-        //    pager.CurrentItem = 3;
-        //}
-
-        //[Java.Interop.Export("EnviarEmailClick")] // The value found in android:onClick attribute.
-        //public void EnviarEmailClick(View v) // Does not need to match value in above attribute.
-        //{
-        //    TAG = 1;
-        //    pager.CurrentItem = 4;
-        //}
-
-        //[Java.Interop.Export("RegistrosClick")] // The value found in android:onClick attribute.
-        //public void RegistrosClick(View v) // Does not need to match value in above attribute.
-        //{
-        //    TAG = 1;
-        //    pager.CurrentItem = 5;
-        //}
-
-        //[Java.Interop.Export("DeletarRegistrosClick")] // The value found in android:onClick attribute.
-        //public void DeletarRegistrosClick(View v) // Does not need to match value in above attribute.
-        //{
-        //    TAG = 1;
-        //    pager.CurrentItem = 6;
         //}
     }
 }
