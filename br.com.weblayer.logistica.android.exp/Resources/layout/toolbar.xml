@@ -8,6 +8,6 @@
   android:background="@color/colorPrimary"
   android:maxHeight="?attr/actionBarSize"
   android:theme="@style/ToolbarTheme"
-  android:popupTheme="@style/PopupTheme">
+  app:popupTheme="@style/PopupTheme">
   
 </android.support.v7.widget.Toolbar>

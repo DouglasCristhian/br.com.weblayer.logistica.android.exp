@@ -10,16 +10,6 @@
       android:id="@+id/toolbar"
       layout="@layout/toolbar"/>
 
-  <ImageView
-    android:id="@+id/Weblayer_Logo"
-    android:layout_height="wrap_content"
-    android:layout_width="wrap_content"
-    android:layout_marginLeft="18dip"
-    android:layout_marginRight="18dip"
-    android:layout_gravity="center_horizontal"
-    android:layout_marginTop="20dip"
-    android:background="@drawable/Weblayer_Logo"/>
-
   <ListView
     android:id="@+id/listaAjuda"
     android:layout_height="wrap_content"

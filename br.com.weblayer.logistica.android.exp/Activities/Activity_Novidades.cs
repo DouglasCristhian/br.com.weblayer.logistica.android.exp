@@ -9,24 +9,20 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using System.Collections;
-using br.com.weblayer.logistica.android.exp.Adapters;
-using br.com.weblayer.logistica.android.exp.Helpers;
 
 namespace br.com.weblayer.logistica.android.exp.Activities
 {
-    [Activity(Label = "Sobre")]
-    public class Activity_SobreWeblayer : Activity_Base
+    [Activity(Label = "Novidades")]
+    public class Activity_Novidades : Activity_Base
     {
         Android.Support.V7.Widget.Toolbar toolbar;
-        private List<ItemLista> mItems;
-        private ListView mListView;
+        private TextView txtNovidades;
 
         protected override int LayoutResource
         {
             get
             {
-                return Resource.Layout.Activity_SobreWeblayer;
+                return Resource.Layout.Activity_Novidades;
             }
         }
 
@@ -35,36 +31,30 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             base.OnCreate(savedInstanceState);
 
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            toolbar.Title = "Novidades";
 
             FindViews();
-            BindData();                
+            BindData();
         }
 
         private void FindViews()
         {
-            mListView = FindViewById<ListView>(Resource.Id.listaAjuda);
+            txtNovidades = FindViewById<TextView>(Resource.Id.txtNovidades);
         }
 
         private void BindData()
         {
-            mItems = new List<ItemLista>();
-
-            mItems.Add(new ItemLista() { Titulo = "Novidades" });
-            mItems.Add(new ItemLista() { Titulo = "Versão\n" + GetVersion() });/*, SubTitulo = "1.1" });*/
-
-            ListViewAdapter adapter = new ListViewAdapter(this, mItems);
-
-            mListView.Adapter = adapter;
-
-            mListView.ItemClick += mListView_ItemClick;
+            txtNovidades.Text = Novidades();
         }
 
-        private void mListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        private string Novidades()
         {
-            if (e.Id == 0)
-            {
-                StartActivity(typeof(Activity_Novidades));
-            }
+            string Novidades;
+            Novidades = GetVersion() + " (23/01/2017):"
+                                     + "\n\n    [Novo] Instruções de uso do aplicativo (Via menu 'Ajuda')"
+                                     + "\n    [Melhorias] Atualização dos ícones do menu";                                 
+            return Novidades;
+
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -86,6 +76,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
                     Finish();
                     return true;
             }
+
             return base.OnOptionsItemSelected(item);
         }
 
@@ -93,5 +84,5 @@ namespace br.com.weblayer.logistica.android.exp.Activities
         {
             return Application.Context.PackageManager.GetPackageInfo(Application.Context.ApplicationContext.PackageName, 0).VersionName;
         }
-     }
+    }
 }

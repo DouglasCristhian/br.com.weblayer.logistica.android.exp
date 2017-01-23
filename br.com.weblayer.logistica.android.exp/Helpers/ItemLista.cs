@@ -14,29 +14,7 @@ namespace br.com.weblayer.logistica.android.exp.Helpers
 {
     public class ItemLista
     {
-        private string titulo;
-        private string subtitulo;
-
-        public ItemLista(string titulo, string subtitulo)
-        {
-            this.titulo = titulo;
-            this.subtitulo = subtitulo;
-        }
-
-        public string Titulo
-        {
-            get
-            {
-                return titulo;
-            }
-        }
-
-        public string Subtitulo
-        {
-            get
-            {
-                return subtitulo;
-            }
-        }
+        public string Titulo { get; set; }
+        public string SubTitulo { get; set; }
     }
 }

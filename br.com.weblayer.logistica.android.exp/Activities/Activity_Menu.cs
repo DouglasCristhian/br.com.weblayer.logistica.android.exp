@@ -35,7 +35,6 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             toolbar.SetLogo(Resource.Mipmap.ic_launcher);
             toolbar.InflateMenu(Resource.Menu.menu_toolbar);
             toolbar.Menu.RemoveItem(Resource.Id.action_deletar);
-            toolbar.Menu.RemoveItem(Resource.Id.action_proximo);
 
             toolbar.MenuItemClick += Toolbar_MenuItemClick;
         }
@@ -90,7 +89,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
                     break;
 
                 case Resource.Id.action_ajuda:
-                    Intent intent2 = new Intent(this, typeof(Activity_ManualUsuario));
+                    Intent intent2 = new Intent(this, typeof(Activity_Ajuda));
                     StartActivityForResult(intent2, 0);
                     break;
 

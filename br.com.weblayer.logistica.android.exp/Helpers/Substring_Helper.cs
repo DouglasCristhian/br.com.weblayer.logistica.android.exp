@@ -17,7 +17,6 @@ namespace br.com.weblayer.logistica.android.exp.Helpers
         public string Substring_CNPJ(string NFE)
         {
             string cnpj;
-            //Substring_Helper sub_cnpj = new Substring_Helper();
 
             if (NFE.Length < 20)
             {

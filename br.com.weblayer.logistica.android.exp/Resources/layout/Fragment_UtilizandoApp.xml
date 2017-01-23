@@ -11,7 +11,24 @@
       android:minWidth="25px"
       android:minHeight="25px">
 
-     <TextView
+    <TextView
+       android:text="Introdução"
+       android:layout_marginLeft="18dip"
+       android:layout_marginTop="18dip"
+       android:textAppearance="?android:attr/textAppearanceLarge"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"/>
+
+    <TextView
+      android:text="@string/utilizandoApp_Introducao"
+      android:layout_marginLeft="20dip"
+      android:layout_marginRight="20dip"
+      android:layout_marginTop="20dip"
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
+
+    <TextView
        android:text="Utilizando o Aplicativo"
        android:layout_marginLeft="18dip"
        android:layout_marginTop="18dip"

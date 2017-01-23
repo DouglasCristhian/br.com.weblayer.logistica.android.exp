@@ -26,9 +26,4 @@
     android:title="Sobre"
     app:showAsAction="never"/>
 
-  <item
-    android:id="@+id/action_proximo"
-    android:icon="@mipmap/ic_next"
-    app:showAsAction="always"/>
-
 </menu>

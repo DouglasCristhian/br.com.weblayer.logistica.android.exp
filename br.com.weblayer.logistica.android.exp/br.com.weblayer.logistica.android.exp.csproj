@@ -152,11 +152,11 @@
   <ItemGroup>
     <Compile Include="Activities\Activity_Base.cs" />
     <Compile Include="Activities\Activity_InformaEntrega.cs" />
-    <Compile Include="Activities\Activity_ManualUsuario.cs" />
+    <Compile Include="Activities\Activity_Ajuda.cs" />
     <Compile Include="Activities\Activity_Menu.cs" />
+    <Compile Include="Activities\Activity_Novidades.cs" />
     <Compile Include="Activities\Activity_SobreWeblayer.cs" />
     <Compile Include="Adapters\Adapter_Entrega_ListView.cs" />
-    <Compile Include="Adapters\CustomAdapter.cs" />
     <Compile Include="Adapters\mySpinner.cs" />
     <Compile Include="Core\BLL\EntregaManager.cs" />
     <Compile Include="Core\BLL\OcorrenciaManager.cs" />
@@ -170,8 +170,8 @@
     <Compile Include="Helpers\ByteHelper.cs" />
     <Compile Include="Helpers\DatePicker_Helper.cs" />
     <Compile Include="Helpers\ItemLista.cs" />
+    <Compile Include="Helpers\ListViewAdapter.cs" />
     <Compile Include="Helpers\Mask.cs" />
-    <Compile Include="Helpers\MyHolder.cs" />
     <Compile Include="Helpers\Substring_Helper.cs" />
     <Compile Include="Helpers\TimePicker_Helper.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -323,22 +323,7 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Fragment_PermissoesApp.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\Fragment_EnviarEmailApp.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\Fragment_Registros.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\Activity_ManualUsuario.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\Fragment_RegistrosDeletar.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\Fragment_MenuManual.xml">
+    <AndroidResource Include="Resources\layout\Activity_ManualUsuario.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -377,9 +362,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\TelaPreenchimento3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\Fragment_Introducao.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\WVendas_Logo.png" />
@@ -434,6 +416,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\ItemLista_Model.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Activity_Novidades.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.24.2.1\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.24.2.1\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

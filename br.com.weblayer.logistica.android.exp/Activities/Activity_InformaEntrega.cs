@@ -119,13 +119,11 @@ namespace br.com.weblayer.logistica.android.exp.Activities
                 menu.RemoveItem(Resource.Id.action_adicionar);
                 menu.RemoveItem(Resource.Id.action_ajuda);
                 menu.RemoveItem(Resource.Id.action_sobre);
-                menu.RemoveItem(Resource.Id.action_proximo);
             }
             else
                 menu.RemoveItem(Resource.Id.action_adicionar);
                 menu.RemoveItem(Resource.Id.action_ajuda);
                 menu.RemoveItem(Resource.Id.action_sobre);
-                menu.RemoveItem(Resource.Id.action_proximo);
 
             return base.OnCreateOptionsMenu(menu);
         }
@@ -353,7 +351,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             switch (e.Item.ItemId)
             {
                 case Resource.Id.action_ajuda:
-                    StartActivity(typeof(Activity_ManualUsuario));
+                    StartActivity(typeof(Activity_Ajuda));
                     break;
 
                 case Resource.Id.action_deletar:

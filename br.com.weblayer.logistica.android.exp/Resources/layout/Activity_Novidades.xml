@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+  <include
+      android:id="@+id/toolbar"
+      layout="@layout/toolbar"/>
+
+  <TextView
+    android:id="@+id/txtNovidades"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="30dip"
+    android:layout_marginBottom="30dip"
+    android:layout_marginLeft="18dip"
+    android:layout_marginRight="18dip"
+    android:textAppearance="?android:attr/textAppearanceMedium"/>      
+
+</LinearLayout>

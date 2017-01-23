@@ -10,8 +10,8 @@ using static Android.App.ActionBar;
 
 namespace br.com.weblayer.logistica.android.exp.Activities
 {
-    [Activity(Label = "Manual do Usuário", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
-    public class Activity_ManualUsuario : Activity_Base
+    [Activity(Label = "Ajuda", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
+    public class Activity_Ajuda : Activity_Base
     {
         Android.Support.V7.Widget.Toolbar toolbar;
         ViewPager pager;
@@ -35,17 +35,15 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.Title = "Ajuda";
 
-            toolbar.MenuItemClick += Toolbar_MenuItemClick;
-
             /*var*/ pager = FindViewById<ViewPager>(Resource.Id.pager);
             /*var */adapter = new GenericFragmentPagerAdaptor(SupportFragmentManager);
 
             //MenuManual
-            adapter.AddFragmentView((i, v, b) =>
-            {
-                var view = i.Inflate(Resource.Layout.Fragment_Introducao, v, false);
-                return view;
-            });
+            //adapter.AddFragmentView((i, v, b) =>
+            //{
+            //    var view = i.Inflate(Resource.Layout.Fragment_Introducao, v, false);
+            //    return view;
+            //});
 
             //Introdução
             adapter.AddFragmentView((i, v, b) =>
@@ -123,15 +121,6 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             return base.OnCreateOptionsMenu(menu);
         }
 
-        private void Toolbar_MenuItemClick(object sender, Android.Support.V7.Widget.Toolbar.MenuItemClickEventArgs e)
-        {
-            switch (e.Item.ItemId)
-            {
-                case Resource.Id.action_proximo:
-                    pager.CurrentItem = 1;
-                    break;
-            }
-        }
 
         //[Java.Interop.Export("SobreWeblayerClick")] // The value found in android:onClick attribute.
         //public void SobreWeblayerClick(View v) // Does not need to match value in above attribute.
