@@ -50,7 +50,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
         private string Novidades()
         {
             string Novidades;
-            Novidades = GetVersion() + " (23/01/2017):"
+            Novidades = " 1.2 (23/01/2017):"
                                      + "\n\n    [Novo] Instruções de uso do aplicativo (Via menu 'Ajuda')"
                                      + "\n    [Melhorias] Atualização dos ícones do menu";                                 
             return Novidades;
