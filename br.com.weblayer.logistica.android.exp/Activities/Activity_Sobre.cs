@@ -16,10 +16,10 @@ using br.com.weblayer.logistica.android.exp.Helpers;
 namespace br.com.weblayer.logistica.android.exp.Activities
 {
     [Activity(Label = "Sobre")]
-    public class Activity_SobreWeblayer : Activity_Base
+    public class Activity_Sobre : Activity_Base
     {
         Android.Support.V7.Widget.Toolbar toolbar;
-        private List<ItemLista> mItems;
+        private List<string> mItems;
         private ListView mListView;
 
         protected override int LayoutResource
@@ -47,15 +47,12 @@ namespace br.com.weblayer.logistica.android.exp.Activities
 
         private void BindData()
         {
-            mItems = new List<ItemLista>();
+            mItems = new List<string>();
 
-            mItems.Add(new ItemLista() { Titulo = "Novidades" });
-            mItems.Add(new ItemLista() { Titulo = "Versão\n" + GetVersion() });/*, SubTitulo = "1.1" });*/
+            mItems.Add("Novidades");
+            mItems.Add("Versão\n" + GetVersion());
 
-            ListViewAdapter adapter = new ListViewAdapter(this, mItems);
-
-            mListView.Adapter = adapter;
-
+            mListView.Adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, mItems);
             mListView.ItemClick += mListView_ItemClick;
         }
 

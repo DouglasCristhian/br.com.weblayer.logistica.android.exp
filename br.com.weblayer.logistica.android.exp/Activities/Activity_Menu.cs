@@ -95,7 +95,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
 
 
                 case Resource.Id.action_sobre:
-                    Intent intent3 = new Intent(this, typeof(Activity_SobreWeblayer));
+                    Intent intent3 = new Intent(this, typeof(Activity_Sobre));
                     StartActivityForResult(intent3, 0);
                     break;
             }
