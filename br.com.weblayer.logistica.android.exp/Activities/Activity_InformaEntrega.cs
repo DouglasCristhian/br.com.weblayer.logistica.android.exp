@@ -199,9 +199,10 @@ namespace br.com.weblayer.logistica.android.exp.Activities
 
             entrega.ds_NFE = txtCodigoNF.Text.ToString();
 
-            string datahora = (txtDataEntrega.Text + " " + txtHoraEntrega.Text);
+            string data = (txtDataEntrega.Text + " " + txtHoraEntrega.Text);
+            var datahora = DateTime.Parse(data, CultureInfo.CreateSpecificCulture("pt-BR"));
 
-            entrega.dt_entrega = DateTime.Parse(datahora);
+            entrega.dt_entrega = datahora;//DateTime.Parse(datahora);
             entrega.dt_inclusao = DateTime.Now;
             var minhaocorrencia = ocorr[spinnerOcorrencia.SelectedItemPosition];
             entrega.id_ocorrencia = minhaocorrencia.Id();
@@ -248,7 +249,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             {
                 return;
             }
-            else if (!e.HasFocus && txtCodigoNF.Text.Length > 0 && txtCodigoNF.Text.Length < 44)
+            else if (!e.HasFocus && txtCodigoNF.Text.Length > 0 && (txtCodigoNF.Text.Length < 44 || txtCodigoNF.Text.Length > 44))
             {
                 txtCodigoNF.Error = "Código inválido! O código de barras deve ter 44 caracteres!";
                 lblCNPJ.Text = "CNPJ Emissor: ";
@@ -285,7 +286,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
         private bool ValidateViews()
         {
             var validacao = true;
-            if (txtCodigoNF.Length() == 0 || txtCodigoNF.Length() < 44)
+            if (txtCodigoNF.Length() == 0 || txtCodigoNF.Length() < 44 || txtCodigoNF.Length() > 44)
             {
                 validacao = false;
                 txtCodigoNF.Error = "Código inválido! O código de barras deve ter 44 caracteres!";
