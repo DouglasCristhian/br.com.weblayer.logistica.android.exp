@@ -68,6 +68,7 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             menu.RemoveItem(Resource.Id.action_adicionar);
             menu.RemoveItem(Resource.Id.action_ajuda);
             menu.RemoveItem(Resource.Id.action_sobre);
+            menu.RemoveItem(Resource.Id.action_sair);
 
             return base.OnCreateOptionsMenu(menu);
         }

@@ -43,8 +43,5 @@ namespace br.com.weblayer.logistica.android.exp.Core.BLL
 
             mensagem = $"Entrega {obj.id} excluída com sucesso";
         }
-
-   
-
     }
 }

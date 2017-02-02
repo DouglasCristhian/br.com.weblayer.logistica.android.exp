@@ -1687,6 +1687,9 @@ namespace br.com.weblayer.logistica.android.exp
 			// aapt resource value: 0x7f0b0026
 			public const int action_mode_close_button = 2131427366;
 			
+			// aapt resource value: 0x7f0b0084
+			public const int action_sair = 2131427460;
+			
 			// aapt resource value: 0x7f0b0083
 			public const int action_sobre = 2131427459;
 			
