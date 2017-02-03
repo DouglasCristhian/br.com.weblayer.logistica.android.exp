@@ -84,11 +84,11 @@ namespace br.com.weblayer.logistica.android.exp.Activities
                 BindData();
                 BindViews();
 
-                ocorr = PopulateOcorrenciaList();
-                spinnerOcorrencia.Adapter = new ArrayAdapter<mySpinner>(this, Android.Resource.Layout.SimpleListItem1, ocorr);
+            ocorr = PopulateOcorrenciaList();
+            spinnerOcorrencia.Adapter = new ArrayAdapter<mySpinner>(this, Android.Resource.Layout.SimpleSpinnerDropDownItem, ocorr);
 
-                if (entrega != null)
-                    spinnerOcorrencia.SetSelection(getIndexByValue(spinnerOcorrencia, entrega.id_ocorrencia));
+            if (entrega != null)
+               spinnerOcorrencia.SetSelection(getIndexByValue(spinnerOcorrencia, entrega.id_ocorrencia));
             
         }
 
@@ -143,7 +143,6 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             lblNumeroNF = FindViewById<TextView>(Resource.Id.lblNumeroNF);
             btnAnexarImagem = FindViewById<Button>(Resource.Id.btnAnexarImagem);
             btnEscanearNF = FindViewById<Button>(Resource.Id.btnEscanearNF);
-            btnCancelar = FindViewById<Button>(Resource.Id.btnCancelar);
             btnEnviar = FindViewById<Button>(Resource.Id.btnEnviar);
             btnEnviarViaEmail = FindViewById<Button>(Resource.Id.btnEnviarViaEmail);
             imageView = FindViewById<ImageView>(Resource.Id.imageView);
@@ -157,7 +156,6 @@ namespace br.com.weblayer.logistica.android.exp.Activities
                 btnEscanearNF.Visibility = ViewStates.Gone;
                 btnAnexarImagem.Visibility = ViewStates.Gone;
                 btnEnviar.Visibility = ViewStates.Gone;
-                btnCancelar.Visibility = ViewStates.Gone;
             }
           
 
@@ -240,7 +238,6 @@ namespace br.com.weblayer.logistica.android.exp.Activities
             btnEscanearNF.Click += BtnEscanearNF_Click;
             btnAnexarImagem.Click += ValidarPermissoes;
             btnEnviar.Click += BtnEnviar_Click;
-            btnCancelar.Click += BtnCancelar_Click;
             btnEnviarViaEmail.Click += BtnEnviarViaEmail_Click;
             txtCodigoNF.FocusChange += TxtCodigoNF_FocusChange;
         }

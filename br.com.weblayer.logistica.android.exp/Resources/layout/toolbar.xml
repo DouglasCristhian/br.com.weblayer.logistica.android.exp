@@ -8,7 +8,11 @@
   android:background="@color/colorPrimary"
   android:maxHeight="?attr/actionBarSize"
   android:navigationIcon="?homeAsUpIndicator"
+  android:textSize="10dip"
   android:theme="@style/ToolbarTheme"
-  app:popupTheme="@style/PopupTheme">
+  app:popupTheme="@style/PopupTheme"
+  android:textAppearance="?android:attr/textAppearanceSmall">
 
 </android.support.v7.widget.Toolbar>
+
+

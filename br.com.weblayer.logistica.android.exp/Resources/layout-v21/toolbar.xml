@@ -6,9 +6,11 @@
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
   android:background="@color/colorPrimary"
-  android:maxHeight="?attr/actionBarSize"
+  android:textAppearance="?android:attr/textAppearanceSmall"
   android:elevation="3dp"
   app:theme="@style/ToolbarTheme"
-  app:popupTheme="@style/PopupTheme">
+  app:popupTheme="@style/PopupTheme"
+  android:textSize="2dip">
 
 </android.support.v7.widget.Toolbar>
+  <!--android:maxHeight="?attr/actionBarSize"-->

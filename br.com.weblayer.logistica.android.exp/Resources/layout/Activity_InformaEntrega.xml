@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -84,10 +85,19 @@
       android:id="@+id/spinnerOcorrencia"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:textSize="18sp"
+      app:theme="@style/SpinnerTheme"
+      android:layout_marginLeft="18dip"
+      android:layout_marginRight="18dip"/>
+
+    <!--<Spinner
+      android:id="@+id/spinnerOcorrencia"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
       android:textAppearance="?android:attr/textAppearanceSmall"
       android:layout_marginRight = "18dip"
       android:layout_marginLeft = "18dip"
-      android:text="Código da NF"/>
+      android:text="Código da NF"/>-->
 
     <!--Data da Ocorrência-->
     <TextView
@@ -176,7 +186,7 @@
        android:id="@+id/btnEnviar"/>
 
     <!--Botão cancelar-->
-    <Button
+    <!--<Button
        android:text= "Cancelar"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
@@ -185,7 +195,7 @@
        android:layout_marginLeft = "18dip"
        android:paddingLeft="30dip"
        android:paddingRight="30dip"
-       android:id="@+id/btnCancelar"/>
+       android:id="@+id/btnCancelar"/>-->
 
     <!--Botão enviar por email-->
     <Button
